@@ -2,7 +2,7 @@
 /**
  * Space unicorns — inspired by Emanuele Bartolesi's JetpackBot
  * (https://github.com/kasuken/website). They gallop between landmarks.
- * The second one wears tiger stripes. Click for a bubble; double-click / control to park.
+ * The second one wears tiger stripes. Parked by default; the control shows them. Click for a bubble; double-click / control to park.
  */
 const base = import.meta.env.BASE_URL;
 
@@ -39,7 +39,7 @@ const unicorns = [
   ))
 }
 <div class="space-unicorn-trail" aria-hidden="true"></div>
-<button class="space-unicorn-control" type="button" aria-pressed="false" hidden>Park unicorns</button>
+<button class="space-unicorn-control" type="button" aria-pressed="true" hidden>Show unicorns</button>
 
 <style>
   .space-unicorn {

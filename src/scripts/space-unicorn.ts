@@ -48,9 +48,9 @@ type Unicorn = {
 if (elements.length === 2 && control) {
   const storedParked = (key: string) => {
     try {
-      return sessionStorage.getItem(key) === '1';
+      return sessionStorage.getItem(key) !== '0';
     } catch {
-      return false;
+      return true;
     }
   };
 
@@ -238,7 +238,7 @@ if (elements.length === 2 && control) {
 
   const syncControl = () => {
     const allParked = unicorns.every((bot) => bot.parked);
-    control.textContent = allParked ? 'Resume unicorns' : 'Park unicorns';
+    control.textContent = allParked ? 'Show unicorns' : 'Park unicorns';
     control.setAttribute('aria-pressed', String(allParked));
     control.hidden = reducedMotion.matches;
   };
@@ -268,8 +268,7 @@ if (elements.length === 2 && control) {
     bot.parked = parked;
     bot.el.toggleAttribute('data-parked', parked);
     try {
-      if (parked) sessionStorage.setItem(bot.key, '1');
-      else sessionStorage.removeItem(bot.key);
+      sessionStorage.setItem(bot.key, parked ? '1' : '0');
     } catch {
       /* parking still works in memory */
     }
