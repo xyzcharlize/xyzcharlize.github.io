@@ -142,7 +142,9 @@
             "properties": {
               "name": { "type": "string" },
               "file": { "type": "string" },
-              "credit": { "type": "string" }
+              "credit": { "type": "string" },
+              "licence": { "type": "string" },
+              "source": { "type": "string" }
             }
           }
         }
