@@ -40,7 +40,8 @@ export const practice = (spine.practice ?? []) as string[];
 
 export type WorkedWithLogo = {
   name: string;
-  file: string;
+  /** Omit for a text tile (no freely licensed mark available). */
+  file?: string;
   licence?: string;
   source?: string;
   credit?: string;

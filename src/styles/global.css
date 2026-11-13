@@ -1473,3 +1473,19 @@ pre {
     padding: 0.6rem 0.7rem;
   }
 }
+
+.logo-word {
+  color: #4a4f57;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .logo-word {
+    font-size: 0.8rem;
+  }
+}

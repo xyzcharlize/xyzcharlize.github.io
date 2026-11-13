@@ -110,7 +110,11 @@ const explore = [
         {
           workedWith.logos.map((logo) => (
             <li class="logo-tile" title={logo.name}>
-              <img src={`${base}${logo.file}`} alt={logo.name} loading="lazy" decoding="async" />
+              {logo.file ? (
+                <img src={`${base}${logo.file}`} alt={logo.name} loading="lazy" decoding="async" />
+              ) : (
+                <span class="logo-word">{logo.name}</span>
+              )}
             </li>
           ))
         }
