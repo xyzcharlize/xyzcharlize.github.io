@@ -2,7 +2,7 @@
 
 Tiny public Astro showcase, deployed to GitHub Pages.
 
-**Live:** https://xyzcharlize.github.io/website/
+**Live:** https://xyzcharlize.github.io/
 
 ## Spine (start here)
 
@@ -23,7 +23,7 @@ npm install
 npm run dev
 ```
 
-Open the printed URL (base path is `/website`).
+Open the printed URL.
 
 ```bash
 npm run build

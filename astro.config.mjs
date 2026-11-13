@@ -1,8 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// Project Pages: https://xyzcharlize.github.io/website/
+// User Pages: https://xyzcharlize.github.io/
 export default defineConfig({
   site: 'https://xyzcharlize.github.io',
-  base: '/website/',
+  base: '/',
 });

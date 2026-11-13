@@ -21,7 +21,7 @@ Edit `spine/spine.json` first when the red thread, box, or pillars change. Keep 
 ```bash
 npm install
 npm run dev
-# base path /website
+# base path /
 npm run build && npm run preview
 ```
 

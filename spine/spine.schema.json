@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://xyzcharlize.github.io/website/spine.schema.json",
+  "$id": "https://xyzcharlize.github.io/spine.schema.json",
   "title": "Portfolio spine",
   "type": "object",
   "required": ["version", "person", "box", "spine", "metaphor", "pillars", "surfaces"],
