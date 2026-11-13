@@ -1409,3 +1409,67 @@ pre {
     transform: none;
   }
 }
+
+/* Worked with — logo row on the home page */
+.worked-with .section-head {
+  margin-bottom: 1.25rem;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.logo-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fbfaf8;
+}
+
+.logo-tile img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.8;
+  transition: filter 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.logo-tile:hover img {
+  filter: none;
+  opacity: 1;
+}
+
+.logo-credits {
+  margin: 0.85rem 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-tile img {
+    transition: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .logo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .logo-tile {
+    height: 3.75rem;
+    padding: 0.6rem 0.7rem;
+  }
+}

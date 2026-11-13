@@ -38,6 +38,13 @@ export const credentialsHome = spine.site.credentialsHome as string[];
 export const pillars = spine.pillars as SpinePillar[];
 export const practice = (spine.practice ?? []) as string[];
 
+export type WorkedWithLogo = { name: string; file: string; credit?: string };
+export const workedWith = spine.workedWith as {
+  label: string;
+  note?: string;
+  logos: WorkedWithLogo[];
+};
+
 export {
   glossary,
   glossaryTerm,

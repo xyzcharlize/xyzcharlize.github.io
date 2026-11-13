@@ -128,6 +128,26 @@
         }
       }
     },
+    "workedWith": {
+      "type": "object",
+      "required": ["label", "logos"],
+      "properties": {
+        "label": { "type": "string" },
+        "note": { "type": "string" },
+        "logos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "file"],
+            "properties": {
+              "name": { "type": "string" },
+              "file": { "type": "string" },
+              "credit": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
     "surfaces": { "type": "object", "additionalProperties": { "type": "string" } },
     "constraints": {
       "type": "object",

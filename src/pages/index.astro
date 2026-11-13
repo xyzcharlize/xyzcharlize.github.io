@@ -10,6 +10,7 @@ import {
   pillars,
   sampleText,
   sampleHref,
+  workedWith,
 } from '../lib/spine';
 
 const base = import.meta.env.BASE_URL;
@@ -98,6 +99,32 @@ const explore = [
       <ul class="credential-strip">
         {credentials.map((item) => <li>{item}</li>)}
       </ul>
+    </section>
+
+    <section class="section shell worked-with" id="worked-with" aria-labelledby="worked-with-heading">
+      <div class="section-head">
+        <p class="eyebrow" id="worked-with-heading">{workedWith.label}</p>
+        {workedWith.note && <p>{workedWith.note}</p>}
+      </div>
+      <ul class="logo-grid">
+        {
+          workedWith.logos.map((logo) => (
+            <li class="logo-tile" title={logo.name}>
+              <img src={`${base}${logo.file}`} alt={logo.name} loading="lazy" decoding="async" />
+            </li>
+          ))
+        }
+      </ul>
+      {
+        workedWith.logos.some((logo) => logo.credit) && (
+          <p class="logo-credits">
+            {workedWith.logos
+              .filter((logo) => logo.credit)
+              .map((logo) => logo.credit)
+              .join(' · ')}
+          </p>
+        )
+      }
     </section>
 
     <section class="section shell" id="spine" aria-labelledby="spine-heading">
