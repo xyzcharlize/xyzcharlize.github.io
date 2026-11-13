@@ -1,0 +1,192 @@
+{
+  "$schema": "./spine.schema.json",
+  "version": 1,
+  "person": {
+    "name": "Charlize Vogelsinger",
+    "shortName": "Charlize",
+    "where": "Switzerland, Kanton Nidwalden"
+  },
+  "box": {
+    "label": "AI-native product engineer",
+    "for": "software product engineering and practitioner enablement",
+    "sentence": "AI-native product engineer for software product engineering & enablement."
+  },
+  "spine": {
+    "thread": "Shipping with coding agents. Owning the outcome. Teaching the new workflow.",
+    "mantra": "Build with agents. Own the outcome.",
+    "oneLiner": "I build, advise, and teach AI-native software.",
+    "support": "AI-native software product engineering with coding agents and customer-facing enablement. Based in Switzerland.",
+    "why": "The red thread through my CV is not a perfect stack and not a list of jobs in order. I worked across all phases of the software development lifecycle."
+  },
+  "metaphor": {
+    "visual": "golden-cut",
+    "visualModule": "src/components/GoldenCut.astro",
+    "verbal": "spiral-to-focus",
+    "verbalModule": "src/components/AiSpiral.astro",
+    "note": "The golden cut (Phi Grid + Fibonacci spiral) is the visual and it shows you this: Each step and each turn brings you closer to the goal. But you need to want to make the turn."
+  },
+  "pillars": [
+    {
+      "id": "discover",
+      "label": "Discover",
+      "text": "Starting from the need. Clear intent, constraints, and what “done” means — so agents draft against a frame, not a guess.",
+      "samples": [
+        "Defined AI value metrics for a tool at three levels — north star, human adoption, and technical solution fitness.",
+        "Owned onboarding and a value-realisation practice for GenAI enterprise search across 50+ data sources and 5 departments.",
+        "Agile requirements engineering and business process modelling across various projects in insurance, finance, retail and public transport."
+      ],
+      "glossary": []
+    },
+    {
+      "id": "build",
+      "label": "Build",
+      "text": "From pilot to production, shipping with coding agents. Investing in automation from the very first step.",
+      "samples": [
+        "GenAI enterprise search (RAG) from pilot to production for 1,000+ users in two months.",
+        "Agentic content factory in Python + Agent Skills — curriculum, storyboard, script, slides, video, quality review, deploy.",
+        "Agentic Copilot tooling for software testers (test-case generation)."
+      ],
+      "glossary": []
+    },
+    {
+      "id": "test",
+      "label": "Test",
+      "text": "Checking what humans or agents produce before it lands. Automated checks and human review in the loop — nothing ships on trust alone.",
+      "samples": [
+        "Copilot-assisted test-case generation for Swiss luxury retail (~30% coverage).",
+        "Quality-review agent plus human approval before a training module goes live.",
+        "Spec-driven verification skills in the agent factory loop."
+      ],
+      "glossary": []
+    },
+    {
+      "id": "own",
+      "label": "Own",
+      "text": "Owning the outcome. The work is not finished when the model answers — it is finished when the outcome holds.",
+      "samples": [
+        "Owned the GenAI search rollout end-to-end — data onboarding through production adoption.",
+        "Content factory ships to 1,000+ learners only after the human gate.",
+        "Lean-agile delivery in public transport: time-to-market −25%, adoption +30%."
+      ],
+      "glossary": []
+    },
+    {
+      "id": "teach",
+      "label": "Teach",
+      "text": "Teaching the new workflow through enablement and speaking — the same loop I use in production, with a customer-facing trusted advisor posture.",
+      "samples": [
+        "50+ Copilot / Copilot Studio sessions for 5,000+ practitioners.",
+        "Guest lecturer on a Swiss CAS DevOps programme.",
+        {
+          "text": "Workshops and talks on AI-native product engineering and learning with AI.",
+          "href": "speaking/"
+        }
+      ],
+      "glossary": [
+        "trusted-advisor"
+      ]
+    }
+  ],
+  "glossary": {
+    "path": "spine/glossary.json",
+    "note": "SME meanings ledger. Print a registered form only when state is defined with text. Undefined terms stay off public surfaces.",
+    "onSpine": [
+      {
+        "id": "trusted-advisor",
+        "pillar": "teach",
+        "role": "Names how the teach pillar shows up with the customer — first in the room, bridging need into working systems."
+      }
+    ]
+  },
+  "surfaces": {
+    "home": "Entry composition: brand, spine one-liner, golden cut over portrait, selected work as proof.",
+    "how-i-work": "Architecture of the practice: daily loop + AI maturity spiral (turns toward focus).",
+    "field-notes": "Working notes that test the spine in the field.",
+    "speaking": "Public expression of the teach pillar.",
+    "about": "Human context around the box and the spine.",
+    "use-cases": "Eight flip cards in four lines that follow the journey — getting started, building the habit, making it pay off, working with agents. Everyday problems teams and leaders face when they adopt AI in software delivery; the problem on the front, how we tackle it on the back. Plain English for mixed readers. No undefined glossary terms."
+  },
+  "constraints": {
+    "public": [
+      "Keep employer and client names off public pages.",
+      "Do not invent metrics or claims.",
+      "SME phrases: only glossary forms with state defined and text."
+    ]
+  },
+  "useCases": [
+    {
+      "category": "Getting started",
+      "cases": [
+        {
+          "name": "Licences bought, usage flat",
+          "problem": "The company rolled out AI coding licences. Three months later a few people use them every day, and most tried once and stopped. The training was a feature demo, not their own work.",
+          "solution": "Hands-on workshops on the team's own code and tickets. We pick two or three everyday tasks, such as tests, docs and small fixes, and agree what to hand over and what to check. Then we follow up on what stuck."
+        },
+        {
+          "name": "No clear rules, so AI goes underground",
+          "problem": "Security and legal have not said what is allowed. Some teams are blocked. Others paste company code into public chatbots. Leaders do not know which is happening where.",
+          "solution": "I bring engineering, security and legal to one table and we write short, practical rules: which tools, which data, and where a person must check the result. We start with low-risk work and widen step by step."
+        }
+      ]
+    },
+    {
+      "category": "Building the habit",
+      "cases": [
+        {
+          "name": "Seniors avoid it, juniors trust it blindly",
+          "problem": "Senior developers say it is faster to write the code themselves. Juniors accept suggestions they cannot explain. Code review gets slower, and quality starts to slip.",
+          "solution": "The team agrees simple working rules: what AI is good for here, what always gets a human review, and that you can explain any code you hand in. Seniors and juniors practise this together on real work."
+        },
+        {
+          "name": "“What did we get for the money?”",
+          "problem": "Management asks for results. The only numbers are licence counts and accepted suggestions. Nobody can say if teams ship faster or better, so the budget is at risk.",
+          "solution": "With the leadership team we agree a few measures that matter: one shared goal, how many people really use the tools, and whether the solution does its job. We take a baseline first, then check against it."
+        }
+      ]
+    },
+    {
+      "category": "Making it pay off",
+      "cases": [
+        {
+          "name": "A pilot that stays a demo",
+          "problem": "An internal assistant or AI search looks great in the demo. Months later it is still a pilot: no owner, no access to the real data, no approval to go live. People do not rely on it.",
+          "solution": "I work with the team to get it live: an owner, a clear measure of success, a plan to bring in the data, and a person checking what goes out. I have taken an AI enterprise search from pilot to production for 1,000+ users in two months."
+        },
+        {
+          "name": "Faster coding, same delivery speed",
+          "problem": "Developers write code faster, but changes wait for review, and testing and releases are still manual. The waiting just moved. Features reach customers no sooner than before.",
+          "solution": "We look at the whole path from idea to production and use AI where the waiting is: clearer requirements up front, generated tests, and automatic checks before a person reviews."
+        }
+      ]
+    },
+    {
+      "category": "Working with agents",
+      "cases": [
+        {
+          "name": "More output than anyone can review",
+          "problem": "The team now runs coding agents. They produce more changes than people can read. Reviewers are swamped, and some start approving without really looking.",
+          "solution": "We write down what is wanted before the agent starts. Agents test and check their own work before a person sees it, so people review what matters: design and risk. I build this setup together with the team."
+        },
+        {
+          "name": "When it breaks, who is responsible?",
+          "problem": "Agents change code and open requests on their own. It is not written down what they may do without a person. When something goes wrong, nobody is sure who should have caught it.",
+          "solution": "For each kind of work we decide what an agent may do alone and what needs a sign-off. Every result has a named owner. We start where mistakes are cheap and extend from there."
+        }
+      ]
+    }
+  ],
+  "practice": [
+    "AI-native software product engineering",
+    "Python + Agentic Skills",
+    "GenAI search (RAG) to production",
+    "Customer-facing enablement"
+  ],
+  "site": {
+    "description": "AI-native product engineer. Software product engineering and practitioner enablement.",
+    "credentialsHome": [
+      "Microsoft Certified Trainer",
+      "Azure AI Engineer Associate",
+      "GitHub Copilot certified"
+    ]
+  }
+}

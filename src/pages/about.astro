@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import {
+  spine,
+  mantra,
+  pillars,
+  siteDescription,
+  sampleText,
+  sampleHref,
+} from '../lib/spine';
+
+const base = import.meta.env.BASE_URL;
+
+const credentials = [
+  {
+    label: 'Microsoft Certified Trainer',
+    badge: 'badges/mct.png',
+    alt: 'Microsoft Certified Trainer badge',
+  },
+  {
+    label: 'Microsoft Azure AI Engineer Associate',
+    badge: 'badges/azure-ai-engineer.png',
+    alt: 'Microsoft Azure AI Engineer Associate badge',
+  },
+  {
+    label: 'GitHub Copilot certification',
+    badge: 'badges/github-copilot.png',
+    alt: 'GitHub Copilot certification badge',
+  },
+  {
+    label: 'ICAgile Certified Professional Enterprise Coach',
+    badge: 'badges/icp-ent.png',
+    alt: 'ICAgile Certified Professional Enterprise Coach badge',
+  },
+  {
+    label: 'SAFe 4 Program Consultant',
+    badge: 'badges/safe4-spc.png',
+    alt: 'SAFe 4 Program Consultant badge',
+  },
+];
+---
+
+<BaseLayout
+  title={`About — ${spine.person.name}`}
+  description={siteDescription}
+>
+  <SiteHeader solid />
+
+  <main id="main" class="page">
+    <header class="page-hero shell page-hero--mark">
+      <div>
+        <p class="eyebrow">About</p>
+        <h1>{mantra}</h1>
+        <p class="page-lede">
+          I’m {spine.person.name} — an {spine.box.label.toLowerCase()} based in {spine.person.where}. {spine.spine.thread}
+        </p>
+      </div>
+      <div class="page-portrait">
+        <img
+          src={`${base}portrait.jpg`}
+          alt={`Portrait of ${spine.person.name}`}
+          width="1200"
+          height="1500"
+          decoding="async"
+        />
+      </div>
+    </header>
+
+    <section class="section shell" id="spine">
+      <div class="section-head">
+        <h2>Work experience</h2>
+        <p>{spine.spine.why}</p>
+      </div>
+      <ul class="pillar-list">
+        {
+          pillars.map((pillar) => (
+            <li>
+              <span class="org">{pillar.label}</span>
+              <div class="pillar-body">
+                <p class="blurb">{pillar.text}</p>
+                {pillar.samples?.length ? (
+                  <div class="pillar-samples">
+                    <p class="pillar-samples-label">Work samples</p>
+                    <ul>
+                      {pillar.samples.map((sample) => {
+                        const text = sampleText(sample);
+                        const href = sampleHref(sample);
+                        return (
+                          <li>
+                            {href ? (
+                              <a href={`${base}${href}`}>{text}</a>
+                            ) : (
+                              text
+                            )}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section shell">
+      <div class="section-head">
+        <h2>Credentials</h2>
+        <p>Selected certifications</p>
+      </div>
+      <ul class="credential-list">
+        {
+          credentials.map((item) => (
+            <li>
+              <img class="credential-badge" src={`${base}${item.badge}`} alt={item.alt} width="48" height="48" />
+              <span>{item.label}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="contact shell" id="contact">
+      <div class="contact-panel">
+        <div>
+          <h2>Say hello</h2>
+          <p>Happy to talk about AI-native software product engineering and enablement.</p>
+        </div>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/xyzcha" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/xyzcharlize" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

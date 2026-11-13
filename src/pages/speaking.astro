@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const talks = [
+  {
+    when: 'Nov 2026',
+    title: 'Mit KI lernen / AI as your learning companion',
+    detail: '55-minute workshop on making Microsoft Copilot a learning companion. For a client in the energy industry.',
+  },
+  {
+    when: 'Oct 2026',
+    title: 'Harness Engineering for Knowledge Workers',
+    detail: 'Talking about applying AI-native build habits and principles that we use in software product engineering and applying them to knowledge work. For my colleagues at work.',
+  },
+  {
+    when: 'Sep 2026',
+    title: 'Critical Thinking and AI',
+    detail: 'Practitioner session on judgment and taste when working with AI. For a client in the automobile industry.',
+  },
+  {
+    when: 'May 2025',
+    title: 'Think Small, Win Big — small language models',
+    detail: 'Why small language models are powerful and to get the most out of them. At the MSAIHub event, Microsoft, Zürich.',
+  },
+];
+
+const teaching = [
+  {
+    title: 'Microsoft Certified Trainer',
+    text: '50+ Copilot / Copilot Studio sessions for 5,000+ practitioners.',
+  },
+  {
+    title: 'Guest lecturer',
+    text: 'University of Applied Sciences Lucerne, CAS DevOps (Nov 2024 – May 2025) — GenAI in requirements engineering and product development.',
+  },
+];
+---
+
+<BaseLayout
+  title="Speaking — Charlize Vogelsinger"
+  description="Talks and practitioner sessions on AI-native software product engineering and Copilot enablement."
+>
+  <SiteHeader solid />
+
+  <main id="main" class="page">
+    <header class="page-hero shell">
+      <p class="eyebrow">Speaking &amp; teaching</p>
+      <h1>I speak and teach where AI tools become practice.</h1>
+      <p class="page-lede">
+        Talks and practitioner sessions on AI-native software product engineering and Copilot enablement.
+      </p>
+    </header>
+
+    <section class="section shell">
+      <div class="section-head">
+        <h2>Selected speaking engagements</h2>
+        <p>A short list of recent sessions.</p>
+      </div>
+      <ul class="talk-list">
+        {
+          talks.map((item) => (
+            <li>
+              <time class="talk-when">{item.when}</time>
+              <div>
+                <h3 class="talk-title">{item.title}</h3>
+                <p class="talk-detail">{item.detail}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section shell">
+      <div class="section-head">
+        <h2>Teaching</h2>
+        <p>Classroom and enablement work.</p>
+      </div>
+      <ul class="work-list">
+        {
+          teaching.map((item) => (
+            <li>
+              <div>
+                <span class="org">{item.title}</span>
+              </div>
+              <p class="blurb">{item.text}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="contact shell">
+      <div class="contact-panel">
+        <div>
+          <h2>Invite me for a talk or practitioner session</h2>
+          <p>Reach out on LinkedIn if you want a session on AI-native software product engineering or Copilot enablement.</p>
+        </div>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/xyzcha" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

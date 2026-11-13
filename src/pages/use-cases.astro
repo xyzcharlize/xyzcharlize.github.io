@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { spine } from '../lib/spine';
+
+const base = import.meta.env.BASE_URL;
+
+type Card = { name: string; problem: string; solution: string };
+type Line = { category: string; cases: Card[] };
+const lines = spine.useCases as Line[];
+---
+
+<BaseLayout
+  title={`Use cases — ${spine.person.name}`}
+  description="Common problems teams and leaders run into when they bring AI into software delivery, and how Charlize Vogelsinger helps solve them."
+>
+  <SiteHeader solid />
+
+  <main id="main" class="page">
+    <header class="page-hero shell">
+      <p class="eyebrow">Use cases</p>
+      <h1>What we can work on.</h1>
+      <p class="page-lede">
+        Problems teams and leaders run into when they bring AI into software delivery, from the first
+        licences to working with agents. Find the one that sounds like you, and turn the card to see how
+        we tackle it.
+      </p>
+    </header>
+
+    <section class="section shell">
+      <ul class="flip-lines">
+        {
+          lines.map((line) => (
+            <li class="flip-line">
+              <h2>{line.category}</h2>
+              {
+                line.cases.map((item) => (
+                  <button
+                    class="flip-card"
+                    type="button"
+                    aria-pressed="false"
+                    aria-label={`${line.category}: ${item.name}. Show the solution.`}
+                  >
+                    <span class="flip-card__inner">
+                      <span class="flip-card__face flip-card__face--front">
+                        <p class="flip-card__kicker">Problem</p>
+                        <p class="flip-card__name">{item.name}</p>
+                        <p class="flip-card__text">{item.problem}</p>
+                        <span class="flip-card__hint">Turn the card</span>
+                      </span>
+                      <span class="flip-card__face flip-card__face--back" aria-hidden="true">
+                        <p class="flip-card__kicker">Solution</p>
+                        <p class="flip-card__name">{item.name}</p>
+                        <p class="flip-card__text">{item.solution}</p>
+                        <span class="flip-card__hint">Turn the card back</span>
+                      </span>
+                    </span>
+                  </button>
+                ))
+              }
+            </li>
+          ))
+        }
+      </ul>
+      <p class="prose prose-call">
+        If one of these sounds familiar, let's talk.{' '}
+        <a href={`${base}how-i-work/`}>How I work</a>.{' '}
+        <a href="https://www.linkedin.com/in/xyzcha" rel="noopener noreferrer">Reach out on LinkedIn</a>.
+      </p>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  const cards = document.querySelectorAll<HTMLButtonElement>('.flip-card');
+  for (const card of cards) {
+    const front = card.querySelector<HTMLElement>('.flip-card__face--front');
+    const back = card.querySelector<HTMLElement>('.flip-card__face--back');
+    const category = card.closest('.flip-line')?.querySelector('h2')?.textContent ?? 'Use case';
+    const name = card.querySelector('.flip-card__name')?.textContent ?? '';
+    const sync = () => {
+      const open = card.getAttribute('aria-pressed') === 'true';
+      front?.toggleAttribute('aria-hidden', open);
+      back?.toggleAttribute('aria-hidden', !open);
+      card.setAttribute(
+        'aria-label',
+        open ? `${category}: ${name}. Show the problem.` : `${category}: ${name}. Show the solution.`,
+      );
+    };
+    card.addEventListener('click', () => {
+      card.setAttribute('aria-pressed', card.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+      sync();
+    });
+    sync();
+  }
+</script>

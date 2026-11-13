@@ -1,0 +1,65 @@
+---
+const turns = [
+  {
+    step: 0,
+    name: 'Gated',
+    hand: 'Nothing yet',
+    desc: 'Access to AI is process-heavy. Long queues. Outputs only exist locally.',
+    bottleneck: 'Legacy approval, and a focus on cost per token instead of outcomes.',
+    unlock: 'None yet.',
+  },
+  {
+    step: 1,
+    name: 'Assisted',
+    hand: 'One agent session',
+    desc: 'You and one agent, a pair. You review almost every change. You sit and watch, because the work is still synchronous.',
+    bottleneck: 'Your attention. Low trust and no self-verification, so you read everything and never look away.',
+    unlock: 'A change that used to fill an afternoon becomes something you finish between meetings.',
+  },
+  {
+    step: 2,
+    name: 'Orchestrated',
+    hand: 'Several agents in parallel',
+    desc: 'You orchestrate them. They check their own work before you see it. You review the diffs, not the keystrokes.',
+    bottleneck: 'Reviewing the output. You write less code and spend the time checking several streams of it.',
+    unlock: 'A backlog that used to take the team weeks becomes one afternoon of orchestration.',
+  },
+  {
+    step: 3,
+    name: 'Supervised autonomy',
+    hand: 'An AI loop',
+    desc: '“Did you read the code?” becomes “what context was the model missing and how do we solve it for next time?”',
+    bottleneck: 'Trust in the loop, and how fast you decide. The trap is scaling the agent count before trust is built-in.',
+    unlock: 'Work you used to kick off yourself now starts on its own. Maintenance that waited for spare time runs in the background.',
+  },
+  {
+    step: 4,
+    name: 'AI-native',
+    hand: 'Intent',
+    desc: 'The loop is closed. Most agents are kicked off by the parent agent. You steer by intent and monitor by exception.',
+    bottleneck: 'Identifying the work to automate at scale, and the right guardrails for each kind of work.',
+    unlock: 'The quarter-long migration becomes a workflow you kick off and check on.',
+  },
+];
+---
+
+<ol class="spiral-turns" aria-label="Five turns of the AI maturity spiral">
+  {
+    turns.map((item) => (
+      <li class="turn" data-turn={item.step} tabindex="0">
+        <span class="turn-label">Turn {item.step}</span>
+        <h3 class="turn-name">{item.name}</h3>
+        <span class="turn-hand-label">You hand over work</span>
+        <p class="turn-hand">{item.hand}</p>
+        <p class="turn-desc">{item.desc}</p>
+        <span class="turn-hand-label">Unlock</span>
+        <p class="turn-extra">{item.unlock}</p>
+        <span class="turn-hand-label">Bottleneck</span>
+        <p class="turn-extra">{item.bottleneck}</p>
+      </li>
+    ))
+  }
+</ol>
+<p class="spiral-note">
+  Steps adapted from <a href="https://claude.ai/code/artifact/bfdfaef9-bc62-4dfe-ba9e-c58a26c9accf" rel="noopener noreferrer">Boris Cherny’s Steps of AI Adoption</a> — reinterpreted as a spiral to match how I compose AI-native product engineering.
+</p>

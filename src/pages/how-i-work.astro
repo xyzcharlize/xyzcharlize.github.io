@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import AiSpiral from '../components/AiSpiral.astro';
+import GoldenCut from '../components/GoldenCut.astro';
+import { spine, thread } from '../lib/spine';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title={`How I work — ${spine.person.name}`}
+  description={`How ${spine.person.name} practices AI-native software product engineering: ${thread}`}
+>
+  <SiteHeader solid />
+
+  <main id="main" class="page">
+    <header class="page-hero shell page-hero--mark">
+      <div>
+        <p class="eyebrow">How I work</p>
+        <h1>Turn by turn.</h1>
+        <p class="page-lede">
+          {spine.metaphor.note} 
+        </p>
+      </div>
+      <div class="page-mark" aria-hidden="true">
+        <GoldenCut />
+      </div>
+    </header>
+
+    <section class="section shell" id="spiral">
+      <div class="section-head">
+        <h2>The AI maturity spiral</h2>
+        <p>
+          Tokens are not enough for the next turn. Each step means breaking the next bottleneck and putting the next guardrails in place.
+        </p>
+      </div>
+      <AiSpiral />
+    </section>
+
+    <section class="section shell" id="offering">
+      <div class="section-head">
+        <h2>How I work with you</h2>
+        <p>Three engagements. Same practice, different depth.</p>
+      </div>
+      <ul class="work-list">
+        <li>
+          <div>
+            <span class="org">Build</span>
+            <span class="meta">A product that ships your product</span>
+          </div>
+          <p class="blurb">
+            From intent to outcome. We name what done means, write the spec, let coding agents draft the work in between, and keep a human gate on what ships. Your team can run it after I leave.{' '}
+            <a href={`${base}field-notes/how-i-build-trainings-with-ai/`}>How I build trainings with AI</a>
+          </p>
+        </li>
+        <li>
+          <div>
+            <span class="org">Next turn Advisory</span>
+            <span class="meta">A team/organization that wants more</span>
+          </div>
+          <p class="blurb">
+            Together, we push as a team, or the organisation around it, to the next turn. We identify the bottlenecks, put the next guardrails in place, and name who owns the outcome.
+          </p>
+        </li>
+        <li>
+          <div>
+            <span class="org">Teach</span>
+            <span class="meta">A room that needs the practice</span>
+          </div>
+          <p class="blurb">
+            A talk or a practitioner session on the workflow I use, not a tour of tools. People leave with habits they can try the same week: what to hand over, what to check, and what stays theirs.{' '}
+            <a href={`${base}speaking/`}>Speaking and teaching</a>
+          </p>
+        </li>
+      </ul>
+      <p class="prose prose-call">
+        Tell me which offering sounds interesting or ask a question.{' '}
+        <a href="https://www.linkedin.com/in/xyzcha" rel="noopener noreferrer">Reach out on LinkedIn</a>.
+      </p>
+    </section>
+
+    <section class="contact shell">
+      <div class="contact-panel">
+        <div>
+          <h2>Want the longer version?</h2>
+          <p>
+            Field notes capture what I prototype and what I learn. Or read more in Speaking & Teaching.
+          </p>
+        </div>
+        <div class="contact-links">
+          <a class="btn btn-primary" href={`${base}field-notes/`}>Field notes</a>
+          <a class="btn btn-ghost" href={`${base}speaking/`}>Speaking</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

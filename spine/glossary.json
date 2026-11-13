@@ -1,0 +1,13 @@
+{
+  "terms": [
+    {
+      "id": "trusted-advisor",
+      "forms": [
+        "customer-facing trusted advisor",
+        "trusted advisor"
+      ],
+      "state": "defined",
+      "text": "The first person in the room with the customer: a hybrid who understands engineering practice, can face the customer, and bridges their needs into working systems. Not purely an engineer."
+    }
+  ]
+}

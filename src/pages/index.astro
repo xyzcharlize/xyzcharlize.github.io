@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import {
+  spine,
+  oneLiner,
+  support,
+  credentialsHome,
+  pillars,
+  sampleText,
+  sampleHref,
+} from '../lib/spine';
+
+const base = import.meta.env.BASE_URL;
+const credentials = credentialsHome;
+
+const work = [
+  {
+    title: 'Agentic content factory',
+    meta: '2026 – present · Switzerland',
+    blurb:
+      'Python + Agent Skills. Specialised agents for curriculum, storyboard, script, slides, video, and quality review, with a human gate before anything ships.',
+  },
+  {
+    title: 'AI-native product engineering',
+    meta: '2024 – present · Switzerland',
+    blurb:
+      'GenAI enterprise search (RAG) from pilot to production for 1,000+ users in two months; agentic Copilot tooling and enablement.',
+  },
+  {
+    title: 'Enterprise agile & delivery coaching',
+    meta: '2017 – 2022 · Switzerland',
+    blurb:
+      'Co-founded a consulting practice. Lean-agile delivery across public transport and insurance; transformation coaching for 500+ practitioners.',
+  },
+];
+
+const explore = [
+  {
+    href: `${base}how-i-work/`,
+    title: 'How I work',
+    text: 'The maturity spiral, and three ways to work together: build, advise, and teach.',
+  },
+  {
+    href: `${base}use-cases/`,
+    title: 'Use cases',
+    text: 'Common problems when teams bring AI into software delivery. Turn a card to see how we tackle it.',
+  },
+  {
+    href: `${base}field-notes/`,
+    title: 'Field notes',
+    text: 'Short notes from the practice. The latest is how I build trainings with AI.',
+  },
+  {
+    href: `${base}speaking/`,
+    title: 'Speaking & teaching',
+    text: 'Talks and practitioner sessions where AI tools become practice.',
+  },
+  {
+    href: `${base}about/`,
+    title: 'About',
+    text: 'Work across the lifecycle, samples from the CV, and credentials.',
+  },
+];
+---
+
+<BaseLayout>
+  <SiteHeader />
+
+  <main id="main">
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-media" aria-hidden="true">
+        <img
+          src={`${base}portrait.jpg`}
+          alt=""
+          width="1200"
+          height="1500"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="hero-veil" aria-hidden="true"></div>
+      <div class="shell">
+        <div class="hero-copy">
+          <h1 class="brand">{spine.person.name}</h1>
+          <p class="lede">{oneLiner}</p>
+          <p class="support">{support}</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href={`${base}how-i-work/`}>How I work</a>
+            <a class="btn btn-ghost" href="#work">Selected work</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="credentials shell" aria-label="Credentials">
+      <ul class="credential-strip">
+        {credentials.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="section shell" id="spine" aria-labelledby="spine-heading">
+      <div class="section-head">
+        <p class="eyebrow">The spine</p>
+        <h2 id="spine-heading">{spine.spine.thread}</h2>
+        <p>{spine.spine.why}</p>
+      </div>
+      <ul class="pillar-list">
+        {
+          pillars.map((pillar) => (
+            <li>
+              <span class="org">{pillar.label}</span>
+              <div class="pillar-body">
+                <p class="blurb">{pillar.text}</p>
+                {pillar.samples?.length ? (
+                  <div class="pillar-samples">
+                    <p class="pillar-samples-label">Work samples</p>
+                    <ul>
+                      {pillar.samples.map((sample) => {
+                        const text = sampleText(sample);
+                        const href = sampleHref(sample);
+                        return (
+                          <li>
+                            {href ? (
+                              <a href={`${base}${href}`}>{text}</a>
+                            ) : (
+                              text
+                            )}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section shell" id="work">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <p>A short cut of recent work — AI-native product engineering, enablement, and transformation coaching.</p>
+      </div>
+
+      <ul class="work-list">
+        {
+          work.map((item) => (
+            <li>
+              <div>
+                <span class="org">{item.title}</span>
+                <span class="meta">{item.meta}</span>
+              </div>
+              <p class="blurb">{item.blurb}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section shell" id="explore">
+      <div class="section-head">
+        <h2>Explore</h2>
+        <p>Five more places to start.</p>
+      </div>
+      <ul class="explore-list">
+        {
+          explore.map((item) => (
+            <li>
+              <a href={item.href}>
+                <span class="explore-title">{item.title}</span>
+                <span class="explore-text">{item.text}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="contact shell" id="contact">
+      <div class="contact-panel">
+        <div>
+          <h2>Say hello</h2>
+          <p>Happy to talk about AI-native software product engineering and enablement.</p>
+        </div>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/xyzcha" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/xyzcharlize" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
