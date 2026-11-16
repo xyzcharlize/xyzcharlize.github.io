@@ -99,7 +99,7 @@
     ]
   },
   "surfaces": {
-    "home": "Entry composition: brand, spine one-liner, golden cut over portrait, selected work as proof.",
+    "home": "Entry composition: brand, spine one-liner, golden cut over portrait, worked-with logo row, selected work as proof.",
     "how-i-work": "Architecture of the practice: daily loop + AI maturity spiral (turns toward focus).",
     "field-notes": "Working notes that test the spine in the field.",
     "speaking": "Public expression of the teach pillar.",
@@ -108,7 +108,7 @@
   },
   "constraints": {
     "public": [
-      "Keep employer and client names off public pages.",
+      "Keep employer and client names off public pages, except the workedWith logo row on the home page.",
       "Do not invent metrics or claims.",
       "SME phrases: only glossary forms with state defined and text."
     ]
@@ -175,6 +175,39 @@
       ]
     }
   ],
+  "workedWith": {
+    "label": "Worked with",
+    "note": "Clients and employers across my career.",
+    "logos": [
+      { "name": "Microsoft", "file": "logos/microsoft.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Microsoft_logo_(2012).svg" },
+      { "name": "SAP", "file": "logos/sap.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:SAP_2011_logo.svg" },
+      { "name": "Mercedes-Benz", "file": "logos/mercedes.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Mercedes_Benz_wordmark.svg" },
+      { "name": "Audi", "file": "logos/audi.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Audi-Logo_2016.svg" },
+      { "name": "Volkswagen", "file": "logos/volkswagen.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Volkswagen_logo_2019.svg" },
+      { "name": "AMAG" },
+      { "name": "Osram", "file": "logos/osram.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Osram_Logo.svg" },
+      { "name": "Sony DADC" },
+      { "name": "Imperial Brands", "file": "logos/imperial-brands.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Imperial_Brands_logo.svg" },
+      { "name": "Haniel", "file": "logos/haniel.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Franz_Haniel_%26_Cie._logo.svg" },
+      { "name": "Migros", "file": "logos/migros.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Migros.svg" },
+      { "name": "Migros Bank", "file": "logos/migros-bank.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Migros-Bank-Logo.svg" },
+      { "name": "PostFinance" },
+      { "name": "Swisscard" },
+      { "name": "Mobiliar" },
+      { "name": "SBB", "file": "logos/sbb.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:SBB_CFF_FFS_logo.svg" },
+      { "name": "ÖBB", "file": "logos/oebb.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Logo_ÖBB.svg" },
+      { "name": "BLS", "file": "logos/bls.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:BLS_AG_logo.svg" },
+      { "name": "EWZ" },
+      { "name": "Securitas" },
+      { "name": "Technical University of Munich", "file": "logos/tum.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Logo_of_the_Technical_University_of_Munich.svg" },
+      { "name": "Hochschule Luzern", "file": "logos/hslu.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:HSLU_2022_logo.svg" },
+      { "name": "KEGON" },
+      { "name": "Zühlke" },
+      { "name": "CSC", "file": "logos/csc.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Computer_Sciences_Corporation_2008_logo.svg" },
+      { "name": "Voith", "file": "logos/voith.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Voith-logo.svg" },
+      { "name": "ABB", "file": "logos/abb.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:ABB_logo.svg" }
+    ]
+  },
   "practice": [
     "AI-native software product engineering",
     "Python + Agentic Skills",
