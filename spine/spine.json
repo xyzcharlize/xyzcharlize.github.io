@@ -104,7 +104,7 @@
     "field-notes": "Working notes that test the spine in the field.",
     "speaking": "Public expression of the teach pillar.",
     "about": "Human context around the box and the spine.",
-    "use-cases": "Eight flip cards in four lines that follow the journey — getting started, building the habit, making it pay off, working with agents. Everyday problems teams and leaders face when they adopt AI in software delivery; the problem on the front, how we tackle it on the back. Plain English for mixed readers. No undefined glossary terms."
+    "use-cases": "Eight flip cards in four lines, two per category — value realization (metrics, developer experience), flow (idea to product to user feedback), leadership (governance and policy that keep up with fast-changing tools), enablement (training, coaching, sharing what works). Everyday problems teams and leaders face along the software and product development lifecycle when they adopt AI; the problem on the front, how we tackle it on the back. Plain English for mixed readers. No undefined glossary terms."
   },
   "constraints": {
     "public": [
@@ -115,62 +115,62 @@
   },
   "useCases": [
     {
-      "category": "Getting started",
+      "category": "Value Realization",
       "cases": [
-        {
-          "name": "Licences bought, usage flat",
-          "problem": "The company rolled out AI coding licences. Three months later a few people use them every day, and most tried once and stopped. The training was a feature demo, not their own work.",
-          "solution": "Hands-on workshops on the team's own code and tickets. We pick two or three everyday tasks, such as tests, docs and small fixes, and agree what to hand over and what to check. Then we follow up on what stuck."
-        },
-        {
-          "name": "No clear rules, so AI goes underground",
-          "problem": "Security and legal have not said what is allowed. Some teams are blocked. Others paste company code into public chatbots. Leaders do not know which is happening where.",
-          "solution": "I bring engineering, security and legal to one table and we write short, practical rules: which tools, which data, and where a person must check the result. We start with low-risk work and widen step by step."
-        }
-      ]
-    },
-    {
-      "category": "Building the habit",
-      "cases": [
-        {
-          "name": "Seniors avoid it, juniors trust it blindly",
-          "problem": "Senior developers say it is faster to write the code themselves. Juniors accept suggestions they cannot explain. Code review gets slower, and quality starts to slip.",
-          "solution": "The team agrees simple working rules: what AI is good for here, what always gets a human review, and that you can explain any code you hand in. Seniors and juniors practise this together on real work."
-        },
         {
           "name": "“What did we get for the money?”",
           "problem": "Management asks for results. The only numbers are licence counts and accepted suggestions. Nobody can say if teams ship faster or better, so the budget is at risk.",
           "solution": "With the leadership team we agree a few measures that matter: one shared goal, how many people really use the tools, and whether the solution does its job. We take a baseline first, then check against it."
+        },
+        {
+          "name": "Good numbers, unhappy developers",
+          "problem": "The dashboard shows high usage. Ask the developers and you hear something else: more time fixing generated code, longer reviews, more interruptions. Nobody measures how the work feels.",
+          "solution": "We put developer experience next to the delivery numbers: a short, regular survey and a few honest conversations. Where the two disagree, we find what gets in the way and fix that first."
         }
       ]
     },
     {
-      "category": "Making it pay off",
+      "category": "Flow",
       "cases": [
         {
-          "name": "A pilot that stays a demo",
-          "problem": "An internal assistant or AI search looks great in the demo. Months later it is still a pilot: no owner, no access to the real data, no approval to go live. People do not rely on it.",
-          "solution": "I work with the team to get it live: an owner, a clear measure of success, a plan to bring in the data, and a person checking what goes out. I have taken an AI enterprise search from pilot to production for 1,000+ users in two months."
+          "name": "A new product, and too many ways to start",
+          "problem": "A team starts a new product from scratch and wants to build it with agents from day one. Which spec-driven approach should we choose? What skills do we need? Weeks go by comparing methods instead of building.",
+          "solution": "We pick one approach that fits the team and the product, and try it on a first thin slice: write down what is wanted, let agents build against it, check the result. We see which skills are missing, build them as we go, and adjust after the first slice."
         },
         {
           "name": "Faster coding, same delivery speed",
-          "problem": "Developers write code faster, but changes wait for review, and testing and releases are still manual. The waiting just moved. Features reach customers no sooner than before.",
-          "solution": "We look at the whole path from idea to production and use AI where the waiting is: clearer requirements up front, generated tests, and automatic checks before a person reviews."
+          "problem": "Developers write code faster, but changes wait for review, and testing and releases are still manual. The waiting just moved. Features reach users no sooner, and their feedback comes back just as late.",
+          "solution": "We look at the whole path from idea to product to user feedback and use AI where the waiting is: clearer requirements up front, generated tests, and automatic checks before a person reviews."
         }
       ]
     },
     {
-      "category": "Working with agents",
+      "category": "Leadership",
       "cases": [
         {
-          "name": "More output than anyone can review",
-          "problem": "The team now runs coding agents. They produce more changes than people can read. Reviewers are swamped, and some start approving without really looking.",
-          "solution": "We write down what is wanted before the agent starts. Agents test and check their own work before a person sees it, so people review what matters: design and risk. I build this setup together with the team."
+          "name": "No clear rules, so AI goes underground",
+          "problem": "Security and legal have not said what is allowed. Some teams are blocked. Others paste company code into public chatbots. Leaders do not know which is happening where.",
+          "solution": "I bring engineering, security and legal to one table and we write short, practical rules: which tools, which data, and where a person must check the result. We start with low-risk work and widen step by step."
         },
         {
-          "name": "When it breaks, who is responsible?",
-          "problem": "Agents change code and open requests on their own. It is not written down what they may do without a person. When something goes wrong, nobody is sure who should have caught it.",
-          "solution": "For each kind of work we decide what an agent may do alone and what needs a sign-off. Every result has a named owner. We start where mistakes are cheap and extend from there."
+          "name": "New features every week, a policy from last year",
+          "problem": "The AI policy took months to approve. Meanwhile the tools bring new features every week: agents, new models, new integrations. The policy does not cover them, so teams wait or decide for themselves.",
+          "solution": "With leadership we replace the long document with a few lasting principles: which data, which risks, what an agent may do alone, and where a person signs off. A small group reviews what is new on a regular rhythm, and teams know whom to ask."
+        }
+      ]
+    },
+    {
+      "category": "Enablement",
+      "cases": [
+        {
+          "name": "Licences bought, usage flat",
+          "problem": "The company rolled out AI coding licences. Three months later a few people use them every day, and most tried once and stopped. The training was a feature demo, not their own work.",
+          "solution": "Hands-on training in the basics, on the team's own code and tickets. We pick two or three everyday tasks, such as tests, docs and small fixes, and agree what to hand over and what to check. Then we follow up on what stuck."
+        },
+        {
+          "name": "What works stays with a few people",
+          "problem": "A few people have found what really works with AI, and what does not. The rest never hear about it. After the first training nothing follows, and every team makes the same mistakes again.",
+          "solution": "We make learning a habit: coaching on real work, short regular sessions where teams show what worked and what failed, and hackathons to try new things. Good practices are written down where everyone finds them."
         }
       ]
     }
