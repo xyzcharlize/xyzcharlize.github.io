@@ -951,10 +951,12 @@ html[data-theme='light'] .hero-name {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2.75rem;
 }
 
-.explore-list li + li {
+.explore-list li {
   border-top: 1px solid var(--line);
 }
 
@@ -1452,6 +1454,10 @@ pre {
   .pillar-list > li {
     grid-template-columns: 1fr;
     gap: 0.45rem;
+  }
+
+  .explore-list {
+    grid-template-columns: 1fr;
   }
 
   .nav {
