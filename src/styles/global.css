@@ -391,6 +391,40 @@ html[data-theme='light'] .theme-icon--moon {
   object-position: 58% 16%;
 }
 
+/* About: golden cut between the text and a mounted portrait. */
+.about-diptych {
+  display: grid;
+  grid-template-columns: minmax(0, 1.618fr) minmax(200px, 1fr);
+  align-items: stretch;
+  column-gap: 0;
+}
+
+.about-diptych-copy {
+  padding-right: 2.25rem;
+  border-right: 1px solid var(--gold);
+}
+
+.about-diptych-portrait {
+  padding-left: 2rem;
+}
+
+.about-diptych-mat {
+  width: min(100%, 260px);
+  padding: 0.7rem;
+  background: #e6ddd2;
+}
+
+.about-diptych-mat img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  background: #d9d3cb;
+}
+
 .brand {
   margin: 0 0 1rem;
   font-family: var(--font-display);
@@ -1377,6 +1411,26 @@ pre {
     width: 132px;
     height: 165px;
     justify-self: start;
+  }
+
+  .about-diptych {
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+  }
+
+  .about-diptych-copy {
+    padding-right: 0;
+    padding-bottom: 1.35rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--gold);
+  }
+
+  .about-diptych-portrait {
+    padding-left: 0;
+  }
+
+  .about-diptych-mat {
+    width: 200px;
   }
 
   .spiral-turns {

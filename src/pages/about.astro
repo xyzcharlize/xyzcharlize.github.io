@@ -49,22 +49,24 @@ const credentials = [
   <SiteHeader solid />
 
   <main id="main" class="page">
-    <header class="page-hero shell page-hero--mark">
-      <div>
+    <header class="page-hero shell about-diptych">
+      <div class="about-diptych-copy">
         <p class="eyebrow">About</p>
         <h1>{mantra}</h1>
         <p class="page-lede">
           I’m {spine.person.name} — an {spine.box.label.toLowerCase()} based in {spine.person.where}. {spine.spine.thread}
         </p>
       </div>
-      <div class="page-portrait">
-        <img
-          src={`${base}portrait.jpg`}
-          alt={`Portrait of ${spine.person.name}`}
-          width="1200"
-          height="1500"
-          decoding="async"
-        />
+      <div class="about-diptych-portrait">
+        <div class="about-diptych-mat">
+          <img
+            src={`${base}portrait.jpg`}
+            alt={`Portrait of ${spine.person.name}`}
+            width="1024"
+            height="1024"
+            decoding="async"
+          />
+        </div>
       </div>
     </header>
 
