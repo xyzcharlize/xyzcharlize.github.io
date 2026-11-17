@@ -4,8 +4,6 @@ import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import { spine } from '../lib/spine';
 
-const base = import.meta.env.BASE_URL;
-
 type Card = { name: string; tags: string[]; problem: string; solution: string };
 type Line = { category: string; cases: Card[] };
 const lines = spine.useCases as Line[];
@@ -71,7 +69,6 @@ const lines = spine.useCases as Line[];
       </ul>
       <p class="prose prose-call">
         If one of these sounds familiar, let's talk.{' '}
-        <a href={`${base}how-i-work/`}>How I work</a>.{' '}
         <a href="https://www.linkedin.com/in/xyzcha" rel="noopener noreferrer">Reach out on LinkedIn</a>.
       </p>
     </section>
