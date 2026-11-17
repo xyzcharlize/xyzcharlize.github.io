@@ -238,7 +238,7 @@ if (elements.length === 2 && control) {
 
   const syncControl = () => {
     const allParked = unicorns.every((bot) => bot.parked);
-    control.textContent = allParked ? 'Play the mascots' : 'Park unicorns';
+    control.textContent = allParked ? 'Play the mascots' : 'Park mascots';
     control.setAttribute('aria-pressed', String(allParked));
     control.hidden = reducedMotion.matches;
   };
