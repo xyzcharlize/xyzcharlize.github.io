@@ -172,7 +172,7 @@
           "name": "Licences bought, usage flat",
           "tags": ["Enablement", "Metrics"],
           "problem": "The company rolled out AI coding licences. Three months later a few people use them every day, and most tried once and stopped. The training was a feature demo, not their own work.",
-          "solution": "Hands-on training in the basics, on the team's own code and tickets. We pick two or three everyday tasks, such as tests, docs and small fixes, and agree what to hand over and what to check. Then we follow up on what stuck."
+          "solution": "Hands-on training in the basics, on the team's own code and tickets. We pick two or three everyday tasks, such as tests, docs and small fixes, and agree what to hand over and what to check. For larger feature specs, we establish a way to formulate them in an agent-friendly way, so they help with implementation and verification. Then we follow up on what stuck."
         },
         {
           "name": "What works stays with a few people",
