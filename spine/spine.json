@@ -120,7 +120,7 @@
         {
           "name": "“What did we get for the money?”",
           "tags": ["Metrics", "Strategy"],
-          "problem": "Management asks for results. The only numbers are licence counts and accepted suggestions. Nobody can say if teams ship faster or better, so the budget is at risk.",
+          "problem": "Management asks for results. The only numbers are licence counts, pull requests merged, and how long they take to merge. Nobody can say if teams ship faster or better, so the budget is at risk.",
           "solution": "With the leadership team we agree a few measures that matter: one shared goal, how many people really use the tools, how the work feels for developers, and whether the solution does its job. We take a baseline first, then check against it."
         },
         {
