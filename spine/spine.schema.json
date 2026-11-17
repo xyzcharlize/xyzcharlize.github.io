@@ -117,9 +117,17 @@
             "maxItems": 2,
             "items": {
               "type": "object",
-              "required": ["name", "problem", "solution"],
+              "required": ["name", "tags", "problem", "solution"],
               "properties": {
                 "name": { "type": "string" },
+                "tags": {
+                  "type": "array",
+                  "minItems": 2,
+                  "maxItems": 2,
+                  "items": {
+                    "enum": ["Strategy", "Governance", "Metrics", "Infrastructure", "Delivery", "Enablement", "Culture"]
+                  }
+                },
                 "problem": { "type": "string" },
                 "solution": { "type": "string" }
               }

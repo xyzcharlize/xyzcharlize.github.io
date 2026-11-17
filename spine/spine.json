@@ -104,7 +104,7 @@
     "field-notes": "Working notes that test the spine in the field.",
     "speaking": "Public expression of the teach pillar.",
     "about": "Human context around the box and the spine.",
-    "use-cases": "Eight flip cards in four lines, two per category — value realization (metrics, tool spend), flow (idea to product to user feedback), leadership (policy that keeps up with fast-changing tools, the future engineering organisation), enablement (training, coaching, sharing what works). Everyday problems teams and leaders face along the software and product development lifecycle when they adopt AI; the problem on the front, how we tackle it on the back. Plain English for mixed readers. No undefined glossary terms."
+    "use-cases": "Eight flip cards in four lines, two per category — value realization (metrics, tool spend), flow (idea to product to user feedback), leadership (policy that keeps up with fast-changing tools, the future engineering organisation), enablement (training, coaching, sharing what works). Everyday problems teams and leaders face along the software and product development lifecycle when they adopt AI; the problem on the front, how we tackle it on the back. Each card carries two tags from a small shared set (Strategy, Governance, Metrics, Infrastructure, Delivery, Enablement, Culture). Plain English for mixed readers. No undefined glossary terms."
   },
   "constraints": {
     "public": [
@@ -119,11 +119,13 @@
       "cases": [
         {
           "name": "“What did we get for the money?”",
+          "tags": ["Metrics", "Strategy"],
           "problem": "Management asks for results. The only numbers are licence counts and accepted suggestions. Nobody can say if teams ship faster or better, so the budget is at risk.",
           "solution": "With the leadership team we agree a few measures that matter: one shared goal, how many people really use the tools, how the work feels for developers, and whether the solution does its job. We take a baseline first, then check against it."
         },
         {
           "name": "Ten teams, ten tools, one growing bill",
+          "tags": ["Infrastructure", "Strategy"],
           "problem": "Every team picked its own AI tools. Costs climb with each renewal, usage-based pricing is hard to forecast, and nobody can say which tools earn their place. The market changes monthly, so a big vendor commitment feels risky.",
           "solution": "We take stock of what is in use and what it costs, and tie each tool to the work it supports. Leadership decides on a small core set, a budget for experiments, and a regular point to review the bet, so switching stays possible."
         }
@@ -134,11 +136,13 @@
       "cases": [
         {
           "name": "A new product, and too many ways to start",
+          "tags": ["Delivery", "Enablement"],
           "problem": "A team starts a new product from scratch and wants to build it with agents from day one. Which spec-driven approach should we choose? What skills do we need? Weeks go by comparing methods instead of building.",
           "solution": "We pick one approach that fits the team and the product, and try it on a first thin slice: write down what is wanted, let agents build against it, check the result. We see which skills are missing, build them as we go, and adjust after the first slice."
         },
         {
           "name": "Faster coding, same delivery speed",
+          "tags": ["Delivery", "Infrastructure"],
           "problem": "Developers write code faster, but changes wait for review, and testing and releases are still manual. The waiting just moved. Features reach users no sooner, and their feedback comes back just as late.",
           "solution": "We look at the whole path from idea to product to user feedback and use AI where the waiting is: clearer requirements up front, generated tests, and automatic checks before a person reviews."
         }
@@ -149,11 +153,13 @@
       "cases": [
         {
           "name": "New features every week, a policy from last year",
+          "tags": ["Governance", "Strategy"],
           "problem": "Some teams are blocked. Others paste company code into public chatbots. The AI policy took months to approve, and the tools bring new features every week: agents, new models, new integrations. The rules are out of date before they are signed.",
           "solution": "I bring engineering, security and legal to one table. We replace the long document with a few lasting principles: which data, which risks, what an agent may do alone, and where a person signs off. A small group reviews what is new on a regular rhythm, and teams know whom to ask."
         },
         {
           "name": "What does our engineering organisation look like in two years?",
+          "tags": ["Strategy", "Enablement"],
           "problem": "Agents take over more of the routine work. Leaders have to decide on hiring, team size and what juniors still learn, without knowing where the technology lands. Waiting feels unsafe, and so does betting everything.",
           "solution": "With the leadership team we describe how roles shift: what people hand over, what they own, and which skills grow in value. We test this with one or two teams first, then adjust hiring and career paths from what we see."
         }
@@ -164,11 +170,13 @@
       "cases": [
         {
           "name": "Licences bought, usage flat",
+          "tags": ["Enablement", "Metrics"],
           "problem": "The company rolled out AI coding licences. Three months later a few people use them every day, and most tried once and stopped. The training was a feature demo, not their own work.",
           "solution": "Hands-on training in the basics, on the team's own code and tickets. We pick two or three everyday tasks, such as tests, docs and small fixes, and agree what to hand over and what to check. Then we follow up on what stuck."
         },
         {
           "name": "What works stays with a few people",
+          "tags": ["Enablement", "Culture"],
           "problem": "A few people have found what really works with AI, and what does not. The rest never hear about it. After the first training nothing follows, and every team makes the same mistakes again.",
           "solution": "We make learning a habit: coaching on real work, short regular sessions where teams show what worked and what failed, and hackathons to try new things. Good practices are written down where everyone finds them."
         }
