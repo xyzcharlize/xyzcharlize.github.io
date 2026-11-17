@@ -1,0 +1,222 @@
+---
+/**
+ * Space unicorns — inspired by Emanuele Bartolesi's JetpackBot
+ * (https://github.com/kasuken/website). They gallop between landmarks.
+ * The second one wears tiger stripes. Parked by default; the control shows them. Click for a bubble; double-click / control to park.
+ */
+const base = import.meta.env.BASE_URL;
+
+const unicorns = [
+  {
+    id: 'space-unicorn',
+    kind: 'hopper',
+    src: `${base}space-unicorn.png`,
+    srcset: `${base}space-unicorn.png 1x, ${base}space-unicorn@2x.png 2x`,
+  },
+  {
+    id: 'space-unicorn-flyer',
+    kind: 'flyer',
+    src: `${base}space-tiger.png`,
+    srcset: `${base}space-tiger.png 1x, ${base}space-tiger@2x.png 2x`,
+  },
+];
+---
+
+{
+  unicorns.map((u) => (
+    <div class="space-unicorn" id={u.id} data-kind={u.kind} data-state="idle" aria-hidden="true">
+      <div class="space-unicorn__bubble" role="presentation"></div>
+      <img
+        class="space-unicorn__sprite"
+        src={u.src}
+        srcset={u.srcset}
+        width="96"
+        height="86"
+        alt=""
+        draggable="false"
+      />
+    </div>
+  ))
+}
+<div class="space-unicorn-trail" aria-hidden="true"></div>
+<button class="space-unicorn-control" type="button" aria-pressed="true" hidden>Play the mascots</button>
+
+<style>
+  .space-unicorn {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 40;
+    width: 96px;
+    height: 86px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transform: translate3d(-200px, -200px, 0);
+    transform-origin: 0 0;
+    will-change: transform;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .space-unicorn[data-ready] {
+    opacity: 1;
+  }
+
+  .space-unicorn[data-parked] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .space-unicorn__sprite {
+    display: block;
+    width: 96px;
+    height: auto;
+    transform-origin: 50% 60%;
+    filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.35));
+    pointer-events: none;
+  }
+
+  .space-unicorn[data-state='hovering'] .space-unicorn__sprite,
+  .space-unicorn[data-state='idle'] .space-unicorn__sprite {
+    animation: unicorn-prance 0.7s ease-in-out infinite;
+  }
+
+  .space-unicorn[data-kind='flyer'][data-state='hovering'] .space-unicorn__sprite,
+  .space-unicorn[data-kind='flyer'][data-state='idle'] .space-unicorn__sprite {
+    animation-duration: 0.82s;
+  }
+
+  @keyframes unicorn-prance {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    35% {
+      translate: 0 -8px;
+    }
+    55% {
+      translate: 0 -1px;
+    }
+    78% {
+      translate: 0 -6px;
+    }
+  }
+
+  .space-unicorn__bubble {
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    translate: -50% 4px;
+    padding: 0.35rem 0.65rem;
+    white-space: nowrap;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    line-height: 1.3;
+    color: var(--ink);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 0.55rem;
+    box-shadow: 3px 3px 0 color-mix(in srgb, var(--accent) 70%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 0.15s ease,
+      translate 0.15s ease;
+  }
+
+  .space-unicorn__bubble[data-show] {
+    opacity: 1;
+    translate: -50% 0;
+  }
+
+  .space-unicorn-trail {
+    position: fixed;
+    inset: 0;
+    z-index: 39;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  :global(.space-unicorn-spark) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    margin: -3px 0 0 -3px;
+    border-radius: 50%;
+    background: var(--spark, #f3b6d8);
+    box-shadow: 0 0 8px color-mix(in srgb, var(--spark, #f3b6d8) 70%, transparent);
+    animation: unicorn-spark 0.9s ease-out forwards;
+  }
+
+  @keyframes unicorn-spark {
+    to {
+      opacity: 0;
+      translate: var(--drift, -14px) 18px;
+      scale: 0.25;
+    }
+  }
+
+  .space-unicorn-control {
+    position: fixed;
+    bottom: 12px;
+    right: 12px;
+    z-index: 40;
+    padding: 0.55rem 0.85rem;
+    min-height: 44px;
+    font: inherit;
+    font-size: 0.78rem;
+    white-space: nowrap;
+    color: var(--ink);
+    background: var(--header-bg);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+  }
+
+  .space-unicorn-control:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .space-unicorn[data-paused],
+  .space-unicorn[data-parked] {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .space-unicorn[data-paused] *,
+  .space-unicorn[data-parked] * {
+    animation-play-state: paused !important;
+  }
+
+  @media (hover: hover) {
+    .space-unicorn-control:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .space-unicorn,
+    .space-unicorn-trail,
+    .space-unicorn-control {
+      display: none;
+    }
+  }
+
+  @media print {
+    .space-unicorn,
+    .space-unicorn-trail,
+    .space-unicorn-control {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import '../scripts/space-unicorn';
+</script>

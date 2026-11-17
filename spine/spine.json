@@ -1,0 +1,236 @@
+{
+  "$schema": "./spine.schema.json",
+  "version": 1,
+  "person": {
+    "name": "Charlize Vogelsinger",
+    "shortName": "Charlize",
+    "where": "Switzerland, Kanton Nidwalden"
+  },
+  "box": {
+    "label": "AI-native product engineer",
+    "for": "software product engineering and practitioner enablement",
+    "sentence": "AI-native product engineer for software product engineering & enablement."
+  },
+  "spine": {
+    "thread": "Shipping with coding agents. Owning the outcome. Teaching the new workflow.",
+    "mantra": "Build with agents. Own the outcome.",
+    "oneLiner": "I build, advise, and teach AI-native software.",
+    "support": "AI-native software product engineering with coding agents and Copilot enablement. Based in Switzerland.",
+    "why": "The red thread through my CV is not a perfect stack and not a list of jobs in order. I worked across all phases of the software development lifecycle."
+  },
+  "metaphor": {
+    "visual": "golden-cut",
+    "visualModule": "src/components/GoldenCut.astro",
+    "verbal": "spiral-to-focus",
+    "verbalModule": "src/components/AiSpiral.astro",
+    "note": "The golden cut (Phi Grid + Fibonacci) is the key visual showing this: Each turn brings you closer to the optimum. And together we can make this a reality faster."
+  },
+  "pillars": [
+    {
+      "id": "discover",
+      "label": "Discover & Spec",
+      "text": "Starting from the need. Clear intent, constraints, and what “done” means — so agents draft against a frame, not a guess.",
+      "samples": [
+        "Defined AI value metrics for a tool at three levels — north star, human adoption, and technical solution fitness.",
+        "Owned onboarding and a value-realisation practice for GenAI enterprise search across 50+ data sources and 5 departments.",
+        "Agile requirements engineering and business process modelling across various projects in insurance, finance, retail and public transport."
+      ],
+      "glossary": ["value"]
+    },
+    {
+      "id": "build",
+      "label": "Build",
+      "text": "From pilot to production, shipping with coding agents. Investing in automation from the very first step.",
+      "samples": [
+        "GenAI enterprise search (RAG) from pilot to production for 1,000+ users in two months.",
+        "Agentic content factory in Python + Agent Skills — curriculum, storyboard, script, slides, video, quality review, deploy.",
+        "Agentic Copilot tooling for software testers (test-case generation)."
+      ],
+      "glossary": ["coding-agents", "agent-skills"]
+    },
+    {
+      "id": "test",
+      "label": "Test & Verify",
+      "text": "Checking what humans or agents produce before it lands. Automated checks and human review in the loop — nothing ships on trust alone.",
+      "samples": [
+        "Copilot-assisted test-case generation for Swiss luxury retail (~30% coverage).",
+        "Quality-review agent plus human approval before a training module goes live.",
+        "Spec-driven verification skills in the agent factory loop."
+      ],
+      "glossary": []
+    },
+    {
+      "id": "own",
+      "label": "Own",
+      "text": "Owning the outcome. The work is not finished when the model answers — it is finished when the outcome holds.",
+      "samples": [
+        "Owned the GenAI search rollout end-to-end — data onboarding through production adoption.",
+        "Content factory ships to 1,000+ learners only after the human gate.",
+        "Lean-agile delivery in public transport: time-to-market −25%, adoption +30%."
+      ],
+      "glossary": []
+    },
+    {
+      "id": "teach",
+      "label": "Teach",
+      "text": "Teaching the new workflow through enablement and speaking — the same loop I use in production, with a customer-facing trusted advisor posture.",
+      "samples": [
+        "50+ Copilot / Copilot Studio sessions for 5,000+ practitioners.",
+        "Guest lecturer on a Swiss CAS DevOps programme.",
+        {
+          "text": "Workshops and talks on AI-native product engineering and learning with AI.",
+          "href": "speaking/"
+        }
+      ],
+      "glossary": [
+        "trusted-advisor",
+        "enablement",
+        "teach",
+        "training"
+      ]
+    }
+  ],
+  "glossary": {
+    "path": "spine/glossary.json",
+    "note": "SME meanings ledger. Print a registered form only when state is defined with text. Undefined terms stay off public surfaces.",
+    "onSpine": [
+      {
+        "id": "trusted-advisor",
+        "pillar": "teach",
+        "role": "Names how the teach pillar shows up with the customer — first in the room, bridging need into working systems."
+      }
+    ]
+  },
+  "surfaces": {
+    "home": "Entry composition: the one-liner leads over a full-bleed portrait, and the name sits on the golden cut near the right shoulder. Worked-with logo carousel in two moving lines, selected work as proof.",
+    "how-i-work": "Architecture of the practice: daily loop + AI maturity turns toward the optimum.",
+    "field-notes": "Working notes that test the spine in the field.",
+    "speaking": "Public expression of the teach pillar.",
+    "about": "Human context around the box and the spine.",
+    "use-cases": "Eight flip cards in four lines, two per category — value realization (metrics, tool spend), flow (idea to product to user feedback), leadership (policy that keeps up with fast-changing tools, the future engineering organisation), enablement (training, coaching, sharing what works). Everyday problems teams and leaders face along the software and product development lifecycle when they adopt AI; the problem on the front, how we tackle it on the back. Each card carries two tags from a small shared set (Strategy, Governance, Metrics, Infrastructure, Delivery, Enablement, Culture). Plain English for mixed readers. No undefined glossary terms."
+  },
+  "constraints": {
+    "public": [
+      "Keep employer and client names off public pages, except the workedWith logo row on the home page.",
+      "Do not invent metrics or claims.",
+      "SME phrases: only glossary forms with state defined and text."
+    ]
+  },
+  "useCases": [
+    {
+      "category": "Value Realization",
+      "cases": [
+        {
+          "name": "“What did we get for the money?”",
+          "tags": ["Metrics", "Strategy"],
+          "problem": "Management asks for results. The only numbers are licence counts, pull requests merged, and how long they take to merge. Nobody can say if teams ship faster or better, so the budget is at risk.",
+          "solution": "With the leadership team we agree a few measures that matter: one shared goal, how many people really use the tools, how the work feels for developers, and whether the solution does its job. We take a baseline first, then check against it."
+        },
+        {
+          "name": "Ten teams, ten tools, one growing bill",
+          "tags": ["Infrastructure", "Strategy"],
+          "problem": "Every team picked its own AI tools. Costs climb with each renewal, usage-based pricing is hard to forecast, and nobody can say which tools earn their place. The market changes monthly, so a big vendor commitment feels risky.",
+          "solution": "We take stock of what is in use and what it costs, and tie each tool to the work it supports. Leadership decides on a small core set, a budget for experiments, and a regular point to review the bet, so switching stays possible."
+        }
+      ]
+    },
+    {
+      "category": "Flow",
+      "cases": [
+        {
+          "name": "A new product, and too many ways to start",
+          "tags": ["Delivery", "Enablement"],
+          "problem": "A team starts a new product from scratch and wants to build it with agents from day one. Which spec-driven approach should we choose? What skills do we need? Weeks go by comparing methods instead of building.",
+          "solution": "We pick one approach that fits the team and the product, and try it on a first thin slice: write down what is wanted, let agents build against it, check the result. We see which skills are missing, build them as we go, and adjust after the first slice."
+        },
+        {
+          "name": "Faster coding, same delivery speed",
+          "tags": ["Delivery", "Infrastructure"],
+          "problem": "Developers write code faster, but changes wait for review, and testing and releases are still manual. The waiting just moved. Features reach users no sooner, and their feedback comes back just as late.",
+          "solution": "We look at the whole path from idea to product to user feedback and use AI where the waiting is: clearer requirements up front, generated tests, and automatic checks before a person reviews."
+        }
+      ]
+    },
+    {
+      "category": "Leadership",
+      "cases": [
+        {
+          "name": "New features every week, a policy from last year",
+          "tags": ["Governance", "Strategy"],
+          "problem": "Some teams are blocked. Others paste company code into public chatbots. The AI policy took months to approve, and the tools bring new features every week: agents, new models, new integrations. The rules are out of date before they are signed.",
+          "solution": "I bring engineering, security and legal to one table. We replace the long document with a few lasting principles: which data, which risks, what an agent may do alone, and where a person signs off. A small group reviews what is new on a regular rhythm, and teams know whom to ask."
+        },
+        {
+          "name": "What does our engineering organisation look like in two years?",
+          "tags": ["Strategy", "Enablement"],
+          "problem": "Agents take over more of the routine work. Leaders have to decide on hiring, team size and what juniors still learn, without knowing where the technology lands. Waiting feels unsafe, and so does betting everything.",
+          "solution": "With the leadership team we describe how roles shift: what people hand over, what they own, and which skills grow in value. We test this with one or two teams first, then adjust hiring and career paths from what we see."
+        }
+      ]
+    },
+    {
+      "category": "Enablement",
+      "cases": [
+        {
+          "name": "Licences bought, usage flat",
+          "tags": ["Enablement", "Metrics"],
+          "problem": "The company rolled out AI coding licences. Three months later a few people use them every day, and most tried once and stopped. The training was a feature demo, not their own work.",
+          "solution": "Hands-on training in the basics, on the team's own code and tickets. We pick two or three everyday tasks, such as tests, docs and small fixes, and agree what to hand over and what to check. For larger feature specs, we establish a way to formulate them in an agent-friendly way, so they help with implementation and verification. Then we follow up on what stuck."
+        },
+        {
+          "name": "What works stays with a few people",
+          "tags": ["Enablement", "Culture"],
+          "problem": "A few people have found what really works with AI, and what does not. The rest never hear about it. After the first training nothing follows, and every team makes the same mistakes again.",
+          "solution": "We make learning a habit: coaching on real work, short regular sessions where teams show what worked and what failed, and hackathons to try new things. Good practices are written down where everyone finds them."
+        }
+      ]
+    }
+  ],
+  "workedWith": {
+    "label": "Worked with",
+    "note": "Clients and employers across my career.",
+    "logos": [
+      { "name": "ABB", "file": "logos/abb.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:ABB_logo.svg" },
+      { "name": "AMAG", "file": "logos/amag.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:AMAG_logo.svg" },
+      { "name": "Audi", "file": "logos/audi.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Audi-Logo_2016.svg" },
+      { "name": "BLS", "file": "logos/bls.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:BLS_AG_logo.svg" },
+      { "name": "CSC", "file": "logos/csc.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Computer_Sciences_Corporation_2008_logo.svg" },
+      { "name": "EWZ", "file": "logos/ewz.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Logo_EWZ.svg" },
+      { "name": "Haniel", "file": "logos/haniel.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Franz_Haniel_%26_Cie._logo.svg" },
+      { "name": "Hochschule Luzern", "file": "logos/hslu.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:HSLU_2022_logo.svg" },
+      { "name": "Imperial Brands", "file": "logos/imperial-brands.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Imperial_Brands_logo.svg" },
+      { "name": "KEGON" },
+      { "name": "Mercedes-Benz", "file": "logos/mercedes.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Mercedes_Benz_wordmark.svg" },
+      { "name": "Microsoft", "file": "logos/microsoft.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Microsoft_logo_(2012).svg" },
+      { "name": "Migros", "file": "logos/migros.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Migros.svg" },
+      { "name": "Migros Bank", "file": "logos/migros-bank.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Migros-Bank-Logo.svg" },
+      { "name": "Mobiliar", "file": "logos/mobiliar.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Schweizerische_Mobiliar_logo.svg" },
+      { "name": "ÖBB", "file": "logos/oebb.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Logo_ÖBB.svg" },
+      { "name": "Osram", "file": "logos/osram.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Osram_Logo.svg" },
+      { "name": "PostFinance", "file": "logos/postfinance.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:PostFinance_Logo.svg" },
+      { "name": "SAP", "file": "logos/sap.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:SAP_2011_logo.svg" },
+      { "name": "SBB", "file": "logos/sbb.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:SBB_CFF_FFS_logo.svg" },
+      { "name": "Securitas" },
+      { "name": "Sony DADC" },
+      { "name": "Swisscard" },
+      { "name": "Technical University of Munich", "file": "logos/tum.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Logo_of_the_Technical_University_of_Munich.svg" },
+      { "name": "Voith", "file": "logos/voith.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Voith-logo.svg" },
+      { "name": "Volkswagen", "file": "logos/volkswagen.svg", "licence": "Public domain", "source": "https://commons.wikimedia.org/wiki/File:Volkswagen_logo_2019.svg" },
+      { "name": "Zühlke" }
+    ]
+  },
+  "practice": [
+    "AI-native software product engineering",
+    "Python + Agentic Skills",
+    "GenAI search (RAG) to production",
+    "Copilot enablement"
+  ],
+  "site": {
+    "description": "AI-native product engineer. Software product engineering and practitioner enablement.",
+    "credentialsHome": [
+      "Microsoft Certified Trainer",
+      "Azure AI Engineer Associate",
+      "GitHub Copilot certified"
+    ]
+  }
+}

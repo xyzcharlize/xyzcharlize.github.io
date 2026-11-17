@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const notes = [
+  {
+    slug: 'measure-the-value-ai-creates',
+    when: 'Nov 2026',
+    title: 'Measure the value AI creates, not the time it saves',
+    dek: "I once built a measurement system with time saved because of AI at the top. Today I wouldn't put it there again.",
+  },
+  {
+    slug: 'how-i-build-trainings-with-ai',
+    when: 'Nov 2026',
+    title: 'How I build trainings with AI',
+    dek: "From a client's wish to slides in the room — and the eight minutes that only work because the spine exists.",
+  },
+];
+---
+
+<BaseLayout
+  title="Field notes — Charlize Vogelsinger"
+  description="Short notes from the practice — rather technical, maybe not perfect. On AI agents and enablement."
+>
+  <SiteHeader solid />
+
+  <main id="main" class="page">
+    <header class="page-hero shell">
+      <p class="eyebrow">Field notes</p>
+      <h1>What I try, and what I learn from it.</h1>
+      <p class="page-lede">
+        Short notes from the practice — rather technical, maybe not perfect. On AI agents and enablement.
+      </p>
+    </header>
+
+    <section class="section shell">
+      <ul class="note-list">
+        {
+          notes.map((note) => (
+            <li>
+              <a href={`${base}field-notes/${note.slug}/`}>
+                <time class="note-when">{note.when}</time>
+                <span class="note-title">{note.title}</span>
+                <span class="note-dek">{note.dek}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

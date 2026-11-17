@@ -1,0 +1,22 @@
+---
+import { spineGlossary } from '../lib/glossary';
+
+const terms = spineGlossary();
+---
+
+{
+  terms.length > 0 && (
+    <div class="spine-glossary">
+      <span class="spine-box-label">Glossary on the spine</span>
+      <ul class="glossary-list">
+        {terms.map((term) => (
+          <li>
+            <strong class="glossary-form">{term.form}</strong>
+            <p class="glossary-text">{term.text}</p>
+            {term.role && <p class="glossary-role">{term.role}</p>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}

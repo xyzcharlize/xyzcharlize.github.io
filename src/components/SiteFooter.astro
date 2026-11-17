@@ -1,0 +1,11 @@
+---
+import { spine } from '../lib/spine';
+import SpaceUnicorn from './SpaceUnicorn.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer shell">
+  <p>© {year} {spine.person.name} · Built with Astro</p>
+</footer>
+<SpaceUnicorn />

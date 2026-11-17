@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="Measure the value AI creates, not the time it saves — Field notes"
+  description="Time saved is a fine first measure for AI. It is not the value. A note on what I would put at the top of the pyramid now."
+>
+  <SiteHeader solid />
+
+  <main id="main" class="page">
+    <article class="shell note-article">
+      <p class="eyebrow"><a href={`${base}field-notes/`}>Field notes</a> · Nov 2026</p>
+      <h1>Measure the value AI creates, not the time it saves</h1>
+      <p class="page-lede">
+        I once built a measurement system with time saved because of AI at the top. Today I wouldn't put it there again.
+      </p>
+
+      <div class="prose-block">
+        <p>
+          This note started with an episode of the Engineering Enablement podcast:
+          <a href="https://getdx.com/podcast/inside-the-devex-metrics-compass-with-andre-meyer/" rel="noopener noreferrer">Inside the DevEx Metrics Compass with André Meyer</a>.
+          André maps more than 120 developer experience metrics, and one of his points stuck with me: AI usage, acceptance
+          rates and pull request counts show activity, not value. I agree. Measuring real value is hard, and we should do
+          it anyway.
+        </p>
+        <p>
+          André looks at developer experience. My work sits next to it: realized value for business, R&amp;D and product
+          innovation people. For me the common denominator is value created versus faster production.
+        </p>
+
+        <h2>The project</h2>
+        <p>
+          A client rolled out a RAG-based enterprise search that indexed knowledge from more than five dozen data
+          sources. It was the first step of their agentic vision. Start with information retrieval, then bring agents
+          into budgeting and new product creation workflows.
+        </p>
+        <p>
+          They wanted to measure time saved for their R&amp;D and other knowledge-work intensive, product-related
+          departments. The baseline was a time-savings potential of about 3 hours per employee per week. After go-live
+          came repeated benefit measurements, around one value question: how does the tool help me refocus my work, and
+          where does it support me day to day?
+        </p>
+        <p>We built the measurement as a pyramid:</p>
+        <div class="prose-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Level</th>
+                <th>What we measured</th>
+                <th>Data source</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1. North star</td>
+                <td>Total benefits, as time saved</td>
+                <td>Sum of the five primary KPIs</td>
+              </tr>
+              <tr>
+                <td>2. Five primary KPIs</td>
+                <td>
+                  Data discovery and access, qualitative analysis, populating templates, ad-hoc result inquiries,
+                  compliance monitoring
+                </td>
+                <td>Quarterly survey</td>
+              </tr>
+              <tr>
+                <td>2.5. Adoption indicators</td>
+                <td>
+                  Weekly unique users, active sessions, 24-hour return rate, power user progression, thumbs up or down,
+                  response relevancy
+                </td>
+                <td>Usage statistics and application traces</td>
+              </tr>
+              <tr>
+                <td>3. Technical health</td>
+                <td>Hallucination spikes, query response time and more</td>
+                <td>Azure plus custom technical data points and traces</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          The quarterly survey mixed quantitative and qualitative questions. Six sections fed the five KPIs and overall
+          perceived value. Time saved came from two sources: usage statistics and self-reports.
+        </p>
+
+        <h2>Where I pushed</h2>
+        <p>
+          Time saved is fine, but I told the client the more important question is what that saved time turns into.
+        </p>
+        <blockquote>
+          <p>Freed-up time only matters if it creates something.</p>
+        </blockquote>
+        <p>
+          It felt scary for me. Measuring what people do with saved time felt like a direct attack on their
+          productivity, a way to squeeze more out of them for the company. So the project didn't measure it
+          quantitatively. They added one subjective question to the quarterly survey.
+        </p>
+
+        <h2>What I'd do today</h2>
+        <p>Looking back, the layered approach was right, but too complex to start with. And the top of the pyramid was wrong.</p>
+        <p>
+          Today I still do not recommend time saved as the north star. It treats AI as a way to squeeze more out of
+          people, and it misses what AI is meant to help us create: new ideas, better and more frequent decisions,
+          products that customers love, more stable platforms, and net new business.
+        </p>
+        <p>This is how I'd set it up now:</p>
+        <ol>
+          <li>
+            <strong>North star:</strong> additional value created, or a close proxy. For an R&amp;D team, that could be a
+            new product variant tested successfully, brought to market with additional revenue created. And most
+            importantly: the north star should be aligned with the strategic goals.
+          </li>
+          <li>
+            <strong>Leading indicators</strong> that show up weeks before the north star moves. For example, a clear
+            convergence of observations or opinions in a customer focus group testing a new variant, and maybe even more
+            rapid iterations of synthetic focus groups. Say, as a made-up example, testers clearly agreeing they like a
+            new strawberry-icy-lime flavor.
+          </li>
+          <li>
+            <strong>Telemetry and surveys</strong> underneath, to triangulate. Telemetry and usage statistics tell you
+            what changed, surveys help explain why. André makes exactly the same point, but for developer experience.
+          </li>
+        </ol>
+        <p>Being faster is a fine first step. It just isn't the value.</p>
+        <p class="aside">Project details have been anonymized to protect privacy and confidentiality.</p>
+      </div>
+
+      <p class="note-back">
+        <a href={`${base}field-notes/`}>← All field notes</a>
+        ·
+        <a href={`${base}how-i-work/`}>How I work</a>
+        ·
+        <a href={`${base}use-cases/`}>Use cases</a>
+      </p>
+    </article>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
