@@ -2,10 +2,15 @@
 import { spine } from '../lib/spine';
 import SpaceUnicorn from './SpaceUnicorn.astro';
 
+interface Props {
+  plain?: boolean;
+}
+
+const { plain = false } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer shell">
   <p>© {year} {spine.person.name} · Built with Astro</p>
 </footer>
-<SpaceUnicorn />
+{!plain && <SpaceUnicorn />}

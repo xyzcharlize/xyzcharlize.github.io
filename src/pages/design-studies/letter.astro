@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SpineList from '../../components/SpineList.astro';
+import WorkedWith from '../../components/WorkedWith.astro';
+import StudySwitch from '../../components/StudySwitch.astro';
+import { credentialsHome, mantra, oneLiner, spine, support } from '../../lib/spine';
+import { exploreLinks, selectedWork } from '../../lib/home-entry';
+import '../../styles/design-studies.css';
+
+const base = import.meta.env.BASE_URL;
+const explore = exploreLinks(base);
+---
+
+<BaseLayout
+  title={`Letter — ${spine.person.name}`}
+  description={oneLiner}
+  robots="noindex, nofollow"
+>
+  <div class="study study-letter">
+    <SiteHeader solid />
+
+    <main id="main">
+      <header class="letter-open shell">
+        <div>
+          <p class="study-kicker">{spine.box.label}</p>
+          <h1 class="letter-title">{oneLiner}</h1>
+          <p class="letter-support">{support}</p>
+          <p class="study-text-links">
+            <a href={`${base}how-i-work/`}>How I work</a>
+            <a href="#work">Selected work</a>
+          </p>
+        </div>
+        <figure class="letter-portrait">
+          <img
+            src={`${base}portrait.jpg`}
+            alt={`Portrait of ${spine.person.name}`}
+            width="1024"
+            height="1024"
+            decoding="async"
+            fetchpriority="high"
+          />
+          <figcaption>{spine.person.where}</figcaption>
+        </figure>
+      </header>
+
+      <ul class="letter-credentials shell" aria-label="Credentials">
+        {credentialsHome.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <section class="study-block shell" aria-labelledby="spine-heading">
+        <h2 class="study-thread" id="spine-heading">{spine.spine.thread}</h2>
+        <p class="study-dek">{spine.spine.why}</p>
+        <SpineList variant="letter" />
+      </section>
+
+      <section class="study-block shell" id="work" aria-labelledby="work-heading">
+        <h2 id="work-heading">Selected work</h2>
+        <p class="study-dek">
+          A short cut of recent work — AI-native product engineering, enablement, and transformation coaching.
+        </p>
+        <ul class="study-work">
+          {
+            selectedWork.map((item) => (
+              <li>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p class="study-meta">{item.meta}</p>
+                </div>
+                <p class="study-blurb">{item.blurb}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <WorkedWith />
+
+      <section class="study-block shell" aria-labelledby="explore-heading">
+        <h2 id="explore-heading">Explore</h2>
+        <p class="study-dek">Five more places to start.</p>
+        <ul class="study-explore">
+          {
+            explore.map((item) => (
+              <li>
+                <a href={item.href}>
+                  <span class="study-explore-title">{item.title}</span>
+                  <span class="study-explore-text">{item.text}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="study-block shell study-contact" id="contact">
+        <h2>Say hello</h2>
+        <p>Happy to talk about AI-native software product engineering and enablement.</p>
+        <p class="study-contact-links">
+          <a href="https://www.linkedin.com/in/xyzcha" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/xyzcharlize" rel="noopener noreferrer">GitHub</a>
+        </p>
+        <p class="letter-sign">{mantra}</p>
+      </section>
+    </main>
+
+    <StudySwitch />
+    <SiteFooter plain />
+  </div>
+</BaseLayout>

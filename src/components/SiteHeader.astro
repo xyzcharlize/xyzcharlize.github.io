@@ -3,15 +3,16 @@ import { spine } from '../lib/spine';
 
 interface Props {
   solid?: boolean;
+  hideMark?: boolean;
 }
 
-const { solid = false } = Astro.props;
+const { solid = false, hideMark = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
-<header class:list={['site-header', { 'site-header--solid': solid }]}>
+<header class:list={['site-header', { 'site-header--solid': solid, 'site-header--nameless': hideMark }]}>
   <div class="shell">
-    <a class="mark" href={base}>{spine.person.name}</a>
+    {!hideMark && <a class="mark" href={base}>{spine.person.name}</a>}
     <div class="header-actions">
       <nav class="nav" aria-label="Primary">
         <a href={base}>Home</a>
