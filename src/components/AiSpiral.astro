@@ -13,7 +13,7 @@ const turns = [
     name: 'Assisted',
     hand: 'One agent session',
     desc: 'You and one agent, a pair. You review almost every change. You sit and watch, because the work is still synchronous.',
-    bottleneck: 'Your attention. Low trust and no self-verification, so you read everything and never look away.',
+    bottleneck: 'Your attention. Low trust and no agentic self-verification, so you read everything and never look away.',
     unlock: 'A change that used to fill an afternoon becomes something you finish between meetings.',
   },
   {
@@ -22,7 +22,7 @@ const turns = [
     hand: 'Several agents in parallel',
     desc: 'You orchestrate them. They check their own work before you see it. You review the diffs, not the keystrokes.',
     bottleneck: 'Reviewing the output. You write less code and spend the time checking several streams of it.',
-    unlock: 'A backlog that used to take the team weeks becomes one afternoon of orchestration.',
+    unlock: 'A backlog that used to take the team weeks becomes one afternoon of agent orchestration.',
   },
   {
     step: 3,
@@ -52,10 +52,10 @@ const turns = [
         <span class="turn-hand-label">You hand over work</span>
         <p class="turn-hand">{item.hand}</p>
         <p class="turn-desc">{item.desc}</p>
-        <span class="turn-hand-label">Unlock</span>
-        <p class="turn-extra">{item.unlock}</p>
         <span class="turn-hand-label">Bottleneck</span>
         <p class="turn-extra">{item.bottleneck}</p>
+        <span class="turn-hand-label">Unlock</span>
+        <p class="turn-extra">{item.unlock}</p>
       </li>
     ))
   }
