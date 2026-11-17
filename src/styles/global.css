@@ -1426,17 +1426,74 @@ pre {
   }
 }
 
-/* Worked with — logo row on the home page */
-.worked-with .section-head {
+/* Worked with — two-line moving logo carousel */
+.worked-with {
+  overflow-x: clip;
+}
+
+.worked-with__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  max-width: none;
   margin-bottom: 1.25rem;
 }
 
-.logo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(8.5rem, 1fr));
+.worked-with__pause {
+  appearance: none;
+  flex: none;
+  margin: 0 0 0.15rem;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.worked-with__pause:hover,
+.worked-with__pause:focus-visible {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+}
+
+.logo-marquee {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.logo-marquee__row {
+  overflow: hidden;
+}
+
+.logo-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: logo-line-left 36s linear infinite;
+}
+
+.logo-marquee__row[data-dir='right'] .logo-marquee__track {
+  animation-name: logo-line-right;
+  animation-duration: 42s;
+}
+
+.logo-marquee:hover .logo-marquee__track,
+.logo-marquee[data-paused] .logo-marquee__track {
+  animation-play-state: paused;
+}
+
+.logo-marquee__set {
+  display: flex;
   gap: 0.75rem;
   margin: 0;
-  padding: 0;
+  padding: 0 0.75rem 0 0;
   list-style: none;
 }
 
@@ -1444,6 +1501,8 @@ pre {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
+  width: 9.5rem;
   height: 5rem;
   padding: 0.9rem 1.1rem;
   border: 1px solid var(--line);
@@ -1472,19 +1531,65 @@ pre {
   font-size: 0.75rem;
 }
 
+@keyframes logo-line-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes logo-line-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .logo-tile img {
     transition: none;
   }
+
+  .worked-with__pause {
+    display: none;
+  }
+
+  .logo-marquee {
+    mask-image: none;
+  }
+
+  .logo-marquee__row {
+    overflow: visible;
+  }
+
+  .logo-marquee__track {
+    display: block;
+    width: auto;
+    animation: none;
+  }
+
+  .logo-marquee__set[aria-hidden='true'] {
+    display: none;
+  }
+
+  .logo-marquee__set {
+    flex-wrap: wrap;
+    padding-right: 0;
+  }
 }
 
 @media (max-width: 560px) {
-  .logo-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+  .worked-with__head {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .logo-tile {
+    width: 7.5rem;
     height: 3.75rem;
     padding: 0.6rem 0.7rem;
   }
