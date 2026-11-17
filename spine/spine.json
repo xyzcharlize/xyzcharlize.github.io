@@ -104,7 +104,7 @@
     "field-notes": "Working notes that test the spine in the field.",
     "speaking": "Public expression of the teach pillar.",
     "about": "Human context around the box and the spine.",
-    "use-cases": "Eight flip cards in four lines, two per category — value realization (metrics, developer experience), flow (idea to product to user feedback), leadership (governance and policy that keep up with fast-changing tools), enablement (training, coaching, sharing what works). Everyday problems teams and leaders face along the software and product development lifecycle when they adopt AI; the problem on the front, how we tackle it on the back. Plain English for mixed readers. No undefined glossary terms."
+    "use-cases": "Eight flip cards in four lines, two per category — value realization (metrics, tool spend), flow (idea to product to user feedback), leadership (policy that keeps up with fast-changing tools, the future engineering organisation), enablement (training, coaching, sharing what works). Everyday problems teams and leaders face along the software and product development lifecycle when they adopt AI; the problem on the front, how we tackle it on the back. Plain English for mixed readers. No undefined glossary terms."
   },
   "constraints": {
     "public": [
@@ -120,12 +120,12 @@
         {
           "name": "“What did we get for the money?”",
           "problem": "Management asks for results. The only numbers are licence counts and accepted suggestions. Nobody can say if teams ship faster or better, so the budget is at risk.",
-          "solution": "With the leadership team we agree a few measures that matter: one shared goal, how many people really use the tools, and whether the solution does its job. We take a baseline first, then check against it."
+          "solution": "With the leadership team we agree a few measures that matter: one shared goal, how many people really use the tools, how the work feels for developers, and whether the solution does its job. We take a baseline first, then check against it."
         },
         {
-          "name": "Good numbers, unhappy developers",
-          "problem": "The dashboard shows high usage. Ask the developers and you hear something else: more time fixing generated code, longer reviews, more interruptions. Nobody measures how the work feels.",
-          "solution": "We put developer experience next to the delivery numbers: a short, regular survey and a few honest conversations. Where the two disagree, we find what gets in the way and fix that first."
+          "name": "Ten teams, ten tools, one growing bill",
+          "problem": "Every team picked its own AI tools. Costs climb with each renewal, usage-based pricing is hard to forecast, and nobody can say which tools earn their place. The market changes monthly, so a big vendor commitment feels risky.",
+          "solution": "We take stock of what is in use and what it costs, and tie each tool to the work it supports. Leadership decides on a small core set, a budget for experiments, and a regular point to review the bet, so switching stays possible."
         }
       ]
     },
@@ -148,14 +148,14 @@
       "category": "Leadership",
       "cases": [
         {
-          "name": "No clear rules, so AI goes underground",
-          "problem": "Security and legal have not said what is allowed. Some teams are blocked. Others paste company code into public chatbots. Leaders do not know which is happening where.",
-          "solution": "I bring engineering, security and legal to one table and we write short, practical rules: which tools, which data, and where a person must check the result. We start with low-risk work and widen step by step."
+          "name": "New features every week, a policy from last year",
+          "problem": "Some teams are blocked. Others paste company code into public chatbots. The AI policy took months to approve, and the tools bring new features every week: agents, new models, new integrations. The rules are out of date before they are signed.",
+          "solution": "I bring engineering, security and legal to one table. We replace the long document with a few lasting principles: which data, which risks, what an agent may do alone, and where a person signs off. A small group reviews what is new on a regular rhythm, and teams know whom to ask."
         },
         {
-          "name": "New features every week, a policy from last year",
-          "problem": "The AI policy took months to approve. Meanwhile the tools bring new features every week: agents, new models, new integrations. The policy does not cover them, so teams wait or decide for themselves.",
-          "solution": "With leadership we replace the long document with a few lasting principles: which data, which risks, what an agent may do alone, and where a person signs off. A small group reviews what is new on a regular rhythm, and teams know whom to ask."
+          "name": "What does our engineering organisation look like in two years?",
+          "problem": "Agents take over more of the routine work. Leaders have to decide on hiring, team size and what juniors still learn, without knowing where the technology lands. Waiting feels unsafe, and so does betting everything.",
+          "solution": "With the leadership team we describe how roles shift: what people hand over, what they own, and which skills grow in value. We test this with one or two teams first, then adjust hiring and career paths from what we see."
         }
       ]
     },
