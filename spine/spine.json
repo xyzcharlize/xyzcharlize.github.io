@@ -35,7 +35,7 @@
         "Owned onboarding and a value-realisation practice for GenAI enterprise search across 50+ data sources and 5 departments.",
         "Agile requirements engineering and business process modelling across various projects in insurance, finance, retail and public transport."
       ],
-      "glossary": []
+      "glossary": ["value"]
     },
     {
       "id": "build",
@@ -46,7 +46,7 @@
         "Agentic content factory in Python + Agent Skills — curriculum, storyboard, script, slides, video, quality review, deploy.",
         "Agentic Copilot tooling for software testers (test-case generation)."
       ],
-      "glossary": []
+      "glossary": ["coding-agents", "agent-skills"]
     },
     {
       "id": "test",
@@ -83,7 +83,10 @@
         }
       ],
       "glossary": [
-        "trusted-advisor"
+        "trusted-advisor",
+        "enablement",
+        "teach",
+        "training"
       ]
     }
   ],
