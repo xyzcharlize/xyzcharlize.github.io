@@ -7,9 +7,6 @@ import {
   oneLiner,
   support,
   credentialsHome,
-  pillars,
-  sampleText,
-  sampleHref,
   workedWith,
 } from '../lib/spine';
 
@@ -137,46 +134,6 @@ const explore = [
           </p>
         )
       }
-    </section>
-
-    <section class="section shell" id="spine" aria-labelledby="spine-heading">
-      <div class="section-head">
-        <p class="eyebrow">The spine</p>
-        <h2 id="spine-heading">{spine.spine.thread}</h2>
-        <p>{spine.spine.why}</p>
-      </div>
-      <ul class="pillar-list">
-        {
-          pillars.map((pillar) => (
-            <li>
-              <span class="org">{pillar.label}</span>
-              <div class="pillar-body">
-                <p class="blurb">{pillar.text}</p>
-                {pillar.samples?.length ? (
-                  <div class="pillar-samples">
-                    <p class="pillar-samples-label">Work samples</p>
-                    <ul>
-                      {pillar.samples.map((sample) => {
-                        const text = sampleText(sample);
-                        const href = sampleHref(sample);
-                        return (
-                          <li>
-                            {href ? (
-                              <a href={`${base}${href}`}>{text}</a>
-                            ) : (
-                              text
-                            )}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                ) : null}
-              </div>
-            </li>
-          ))
-        }
-      </ul>
     </section>
 
     <section class="section shell" id="work">
