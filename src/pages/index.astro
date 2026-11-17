@@ -189,11 +189,14 @@ const explore = [
       </div>
       <ul class="explore-list">
         {
-          explore.map((item) => (
+          explore.map((item, index) => (
             <li>
               <a href={item.href}>
-                <span class="explore-title">{item.title}</span>
-                <span class="explore-text">{item.text}</span>
+                <span class="explore-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <span class="explore-copy">
+                  <span class="explore-title">{item.title}</span>
+                  <span class="explore-text">{item.text}</span>
+                </span>
               </a>
             </li>
           ))
