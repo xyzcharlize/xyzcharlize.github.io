@@ -247,7 +247,7 @@ html[data-theme='light'] .theme-icon--moon {
   position: relative;
   min-height: 100svh;
   display: grid;
-  align-items: end;
+  align-items: center;
   overflow: hidden;
   isolation: isolate;
 }
@@ -261,10 +261,9 @@ html[data-theme='light'] .theme-icon--moon {
 .hero-media img {
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
   object-position: 58% 18%;
-  transform: scale(1.06);
-  animation: hero-drift 14s var(--ease) both;
 }
 
 .hero-veil {
@@ -279,9 +278,85 @@ html[data-theme='light'] .theme-icon--moon {
 .hero-copy {
   position: relative;
   z-index: 2;
-  width: min(620px, 100%);
-  padding: 7.5rem 0 4.5rem;
+  width: min(36rem, 100%);
+  padding: 5.5rem 0 2rem;
   animation: rise 900ms var(--ease) both;
+}
+
+.hero-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  margin: 0;
+  max-width: 11em;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 4.4vw, 4.15rem);
+  font-weight: 560;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.hero-support {
+  margin: 1.15rem 0 0;
+  max-width: 28ch;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.45rem;
+  margin: 1.6rem 0 0;
+}
+
+.hero-links a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+}
+
+html[data-theme='light'] .hero-kicker,
+html[data-theme='light'] .hero-links a {
+  color: #7a3818;
+}
+
+html[data-theme='light'] .hero-title {
+  color: #1d1a16;
+}
+
+html[data-theme='light'] .hero-support {
+  color: #5c554c;
+}
+
+html[data-theme='light'] .hero-name {
+  color: #1d1a16;
+  text-shadow: 0 1px 10px rgba(243, 238, 230, 0.45);
+}
+
+.hero-name {
+  position: absolute;
+  z-index: 2;
+  left: 38.2%;
+  top: 61.8%;
+  margin: 0;
+  max-width: 12ch;
+  color: #f6f1ea;
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+  font-weight: 560;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  text-shadow: 0 1px 12px rgba(16, 21, 30, 0.55);
 }
 
 .golden-cut {
@@ -423,36 +498,6 @@ html[data-theme='light'] .theme-icon--moon {
   object-fit: cover;
   object-position: center;
   background: #d9d3cb;
-}
-
-.brand {
-  margin: 0 0 1rem;
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 7vw, 5.2rem);
-  font-weight: 650;
-  line-height: 0.95;
-  letter-spacing: -0.035em;
-}
-
-.lede {
-  margin: 0 0 0.85rem;
-  max-width: 28ch;
-  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
-  line-height: 1.25;
-  color: var(--ink-soft);
-}
-
-.support {
-  margin: 0 0 1.75rem;
-  max-width: 38ch;
-  color: var(--muted);
-  font-size: 1rem;
-}
-
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 1rem;
 }
 
 .btn {
@@ -1376,17 +1421,6 @@ pre {
   }
 }
 
-@keyframes hero-drift {
-  from {
-    transform: scale(1.12) translate3d(1.5%, 0, 0);
-    opacity: 0.7;
-  }
-  to {
-    transform: scale(1.06) translate3d(0, 0, 0);
-    opacity: 1;
-  }
-}
-
 @media (max-width: 800px) {
   .shell {
     width: min(1120px, calc(100% - 1.5rem));
@@ -1403,7 +1437,14 @@ pre {
   }
 
   .hero-copy {
+    width: 100%;
     padding: 6.5rem 0 3rem;
+  }
+
+  .hero-name {
+    left: 8%;
+    top: auto;
+    bottom: 8%;
   }
 
   .work-list li,

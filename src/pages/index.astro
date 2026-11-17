@@ -84,15 +84,16 @@ const explore = [
       <div class="hero-veil" aria-hidden="true"></div>
       <div class="shell">
         <div class="hero-copy">
-          <h1 class="brand">{spine.person.name}</h1>
-          <p class="lede">{oneLiner}</p>
-          <p class="support">{support}</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href={`${base}how-i-work/`}>How I work</a>
-            <a class="btn btn-ghost" href="#work">Selected work</a>
-          </div>
+          <p class="hero-kicker">{spine.box.label}</p>
+          <h1 class="hero-title">{oneLiner}</h1>
+          <p class="hero-support">{support}</p>
+          <p class="hero-links">
+            <a href={`${base}how-i-work/`}>How I work</a>
+            <a href="#work">Selected work</a>
+          </p>
         </div>
       </div>
+      <p class="hero-name">{spine.person.name}</p>
     </section>
 
     <section class="credentials shell" aria-label="Credentials">
