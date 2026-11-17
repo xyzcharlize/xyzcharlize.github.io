@@ -23,7 +23,7 @@
     "visualModule": "src/components/GoldenCut.astro",
     "verbal": "spiral-to-focus",
     "verbalModule": "src/components/AiSpiral.astro",
-    "note": "The golden cut (Phi Grid + Fibonacci) is the visual and it shows you this: Each step and each turn brings us closer to the goal and one level up. We are going to make that next turn together."
+    "note": "The golden cut (Phi Grid + Fibonacci) is the key visual showing this: Each turn brings you closer to the optimum. And together we can make this a reality faster."
   },
   "pillars": [
     {
@@ -100,7 +100,7 @@
   },
   "surfaces": {
     "home": "Entry composition: the one-liner leads over a full-bleed portrait, and the name sits on the golden cut near the right shoulder. Worked-with logo carousel in two moving lines, selected work as proof.",
-    "how-i-work": "Architecture of the practice: daily loop + AI maturity spiral (turns toward focus).",
+    "how-i-work": "Architecture of the practice: daily loop + AI maturity turns toward the optimum.",
     "field-notes": "Working notes that test the spine in the field.",
     "speaking": "Public expression of the teach pillar.",
     "about": "Human context around the box and the spine.",
