@@ -48,7 +48,7 @@ export function exploreLinks(base: string): HomeExplore[] {
     {
       href: `${base}field-notes/`,
       title: 'Field notes',
-      text: 'Short notes from the practice. The latest is how I build trainings with AI.',
+      text: 'Short notes from the practice. The latest: measure the value AI creates, not the time it saves.',
     },
     {
       href: `${base}speaking/`,
