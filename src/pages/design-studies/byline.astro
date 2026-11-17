@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SpineList from '../../components/SpineList.astro';
+import WorkedWith from '../../components/WorkedWith.astro';
+import StudySwitch from '../../components/StudySwitch.astro';
+import { credentialsHome, oneLiner, pillars, spine, support, thread } from '../../lib/spine';
+import { exploreLinks, selectedWork } from '../../lib/home-entry';
+import '../../styles/design-studies.css';
+
+const base = import.meta.env.BASE_URL;
+const explore = exploreLinks(base);
+---
+
+<BaseLayout
+  title={`Byline — ${spine.person.name}`}
+  description={oneLiner}
+  robots="noindex, nofollow"
+>
+  <div class="study study-byline">
+    <SiteHeader solid hideMark />
+
+    <main id="main">
+      <header class="byline-mast shell">
+        <div class="byline-photo">
+          <img
+            src={`${base}portrait.jpg`}
+            alt={`Portrait of ${spine.person.name}`}
+            width="1024"
+            height="1024"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+        <div>
+          <p class="byline-name">{spine.person.name}</p>
+          <p class="byline-role">{spine.box.label}</p>
+        </div>
+        <p class="byline-place">{spine.person.where}</p>
+      </header>
+
+      <div class="byline-lead shell">
+        <h1>{oneLiner}</h1>
+        <p class="byline-deck">{thread}</p>
+        <p class="byline-support">{support}</p>
+        <p class="study-text-links">
+          <a href="#work">Selected work</a>
+          <a href={`${base}how-i-work/`}>How I work</a>
+        </p>
+      </div>
+
+      <div class="byline-grid shell">
+        <div class="byline-main">
+          <section id="work" aria-labelledby="work-heading">
+            <h2 id="work-heading">Selected work</h2>
+            <p class="study-dek">
+              A short cut of recent work — AI-native product engineering, enablement, and transformation coaching.
+            </p>
+            <ul class="study-work">
+              {
+                selectedWork.map((item) => (
+                  <li>
+                    <p class="study-meta">{item.meta}</p>
+                    <h3>{item.title}</h3>
+                    <p class="study-blurb">{item.blurb}</p>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+
+          <section class="byline-spine" aria-labelledby="spine-heading">
+            <h2 id="spine-heading">The spine</h2>
+            <p class="study-dek">{spine.spine.why}</p>
+            <SpineList variant="bands" />
+          </section>
+
+          <section aria-labelledby="explore-heading">
+            <h2 id="explore-heading">Explore</h2>
+            <p class="study-dek">Five more places to start.</p>
+            <ul class="study-explore">
+              {
+                explore.map((item) => (
+                  <li>
+                    <a href={item.href}>
+                      <span class="study-explore-title">{item.title}</span>
+                      <span class="study-explore-text">{item.text}</span>
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+        </div>
+
+        <aside class="byline-rail">
+          <nav aria-label="The spine">
+            <p class="rail-kicker">The spine</p>
+            <ol class="byline-contents">
+              {
+                pillars.map((pillar, index) => (
+                  <li>
+                    <a href={`#${pillar.id}`}>
+                      {pillar.label}
+                      <span>{String(index + 1).padStart(2, '0')}</span>
+                    </a>
+                  </li>
+                ))
+              }
+            </ol>
+          </nav>
+
+          <section aria-labelledby="credentials-heading">
+            <h2 id="credentials-heading">Credentials</h2>
+            <ul class="rail-list">
+              {credentialsHome.map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
+
+          <section class="study-contact" id="contact" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Say hello</h2>
+            <p>Happy to talk about AI-native software product engineering and enablement.</p>
+            <p class="study-contact-links">
+              <a href="https://www.linkedin.com/in/xyzcha" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://github.com/xyzcharlize" rel="noopener noreferrer">GitHub</a>
+            </p>
+          </section>
+        </aside>
+      </div>
+
+      <WorkedWith />
+    </main>
+
+    <StudySwitch />
+    <SiteFooter plain />
+  </div>
+</BaseLayout>

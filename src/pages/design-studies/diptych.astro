@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import SpineList from '../../components/SpineList.astro';
+import WorkedWith from '../../components/WorkedWith.astro';
+import StudySwitch from '../../components/StudySwitch.astro';
+import { credentialsHome, oneLiner, spine, support } from '../../lib/spine';
+import { exploreLinks, selectedWork } from '../../lib/home-entry';
+import '../../styles/design-studies.css';
+
+const base = import.meta.env.BASE_URL;
+const explore = exploreLinks(base);
+const given = spine.person.shortName;
+const family = spine.person.name.startsWith(`${given} `)
+  ? spine.person.name.slice(given.length + 1)
+  : spine.person.name;
+---
+
+<BaseLayout
+  title={`Diptych — ${spine.person.name}`}
+  description={oneLiner}
+  robots="noindex, nofollow"
+>
+  <div class="study study-diptych">
+    <SiteHeader solid hideMark />
+
+    <main id="main">
+      <section class="diptych" aria-label="Introduction">
+        <div class="diptych-copy">
+          <p class="study-kicker">{spine.box.label}</p>
+          <h1>
+            {given}<br />{family}
+          </h1>
+          <p class="diptych-lede">{oneLiner}</p>
+          <p class="diptych-support">{support}</p>
+          <p class="study-text-links">
+            <a href={`${base}how-i-work/`}>How I work</a>
+            <a href="#work">Selected work</a>
+          </p>
+          <ul class="diptych-credentials" aria-label="Credentials">
+            {credentialsHome.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <figure class="diptych-portrait">
+          <div class="diptych-mat">
+            <img
+              src={`${base}portrait.jpg`}
+              alt={`Portrait of ${spine.person.name}`}
+              width="1024"
+              height="1024"
+              decoding="async"
+              fetchpriority="high"
+            />
+          </div>
+          <figcaption>{spine.person.where}</figcaption>
+        </figure>
+      </section>
+
+      <section class="study-block shell" aria-labelledby="spine-heading">
+        <h2 class="study-thread" id="spine-heading">{spine.spine.thread}</h2>
+        <p class="study-dek">{spine.spine.why}</p>
+        <SpineList variant="bands" />
+      </section>
+
+      <section class="study-block shell" id="work" aria-labelledby="work-heading">
+        <h2 id="work-heading">Selected work</h2>
+        <p class="study-dek">
+          A short cut of recent work — AI-native product engineering, enablement, and transformation coaching.
+        </p>
+        <ul class="study-work">
+          {
+            selectedWork.map((item) => (
+              <li>
+                <h3>{item.title}</h3>
+                <p class="study-meta">{item.meta}</p>
+                <p class="study-blurb">{item.blurb}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <WorkedWith />
+
+      <section class="study-block shell" aria-labelledby="explore-heading">
+        <h2 id="explore-heading">Explore</h2>
+        <p class="study-dek">Five more places to start.</p>
+        <ul class="study-explore">
+          {
+            explore.map((item) => (
+              <li>
+                <a href={item.href}>
+                  <span class="study-explore-title">{item.title}</span>
+                  <span class="study-explore-text">{item.text}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <section class="study-block shell study-contact" id="contact">
+        <h2>Say hello</h2>
+        <p>Happy to talk about AI-native software product engineering and enablement.</p>
+        <p class="study-contact-links">
+          <a href="https://www.linkedin.com/in/xyzcha" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/xyzcharlize" rel="noopener noreferrer">GitHub</a>
+        </p>
+      </section>
+    </main>
+
+    <StudySwitch />
+    <SiteFooter plain />
+  </div>
+</BaseLayout>

@@ -201,6 +201,10 @@ html[data-theme='light'] .theme-icon--moon {
   gap: 1rem;
 }
 
+.site-header--nameless .shell {
+  justify-content: flex-end;
+}
+
 .mark {
   font-family: var(--font-display);
   font-weight: 650;

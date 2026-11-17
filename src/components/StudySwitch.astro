@@ -1,0 +1,29 @@
+---
+const base = import.meta.env.BASE_URL;
+
+const links = [
+  { href: `${base}design-studies/`, label: 'Studies' },
+  { href: `${base}design-studies/letter/`, label: 'Letter' },
+  { href: `${base}design-studies/diptych/`, label: 'Diptych' },
+  { href: `${base}design-studies/byline/`, label: 'Byline' },
+  { href: base, label: 'Current home' },
+];
+
+function norm(path: string) {
+  if (path === '/') return '/';
+  return path.replace(/\/$/, '');
+}
+
+const here = norm(Astro.url.pathname);
+---
+
+<nav class="study-switch shell" aria-label="Design studies">
+  <span>Comparing</span>
+  {
+    links.map((link) => (
+      <a href={link.href} aria-current={norm(link.href) === here ? 'page' : undefined}>
+        {link.label}
+      </a>
+    ))
+  }
+</nav>
