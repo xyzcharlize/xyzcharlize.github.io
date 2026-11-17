@@ -7,14 +7,14 @@ import {
   oneLiner,
   support,
   credentialsHome,
-  pillars,
-  sampleText,
-  sampleHref,
   workedWith,
 } from '../lib/spine';
 
 const base = import.meta.env.BASE_URL;
 const credentials = credentialsHome;
+const logos = workedWith.logos;
+const splitAt = Math.ceil(logos.length / 2);
+const logoLines = [logos.slice(0, splitAt), logos.slice(splitAt)];
 
 const work = [
   {
@@ -101,82 +101,63 @@ const explore = [
       </ul>
     </section>
 
-    <section class="section shell worked-with" id="worked-with" aria-labelledby="worked-with-heading">
-      <div class="section-head">
-        <p class="eyebrow" id="worked-with-heading">{workedWith.label}</p>
-        {workedWith.note && <p>{workedWith.note}</p>}
+    <section class="section worked-with" id="worked-with" aria-labelledby="worked-with-heading">
+      <div class="shell">
+        <div class="section-head worked-with__head">
+          <div>
+            <p class="eyebrow" id="worked-with-heading">{workedWith.label}</p>
+            {workedWith.note && <p>{workedWith.note}</p>}
+          </div>
+          <button type="button" class="worked-with__pause" data-logo-pause aria-pressed="false">
+            Pause
+          </button>
+        </div>
       </div>
-      <ul class="logo-grid">
+      <div class="shell">
+      <div class="logo-marquee" data-logo-marquee>
         {
-          workedWith.logos.map((logo) => (
-            <li class="logo-tile" title={logo.name}>
-              {logo.file ? (
-                <img src={`${base}${logo.file}`} alt={logo.name} loading="lazy" decoding="async" />
-              ) : (
-                <span class="logo-word">{logo.name}</span>
-              )}
-            </li>
+          logoLines.map((line, index) => (
+            <div class="logo-marquee__row" data-dir={index === 0 ? 'left' : 'right'}>
+              <div class="logo-marquee__track">
+                {[false, true].map((clone) => (
+                  <ul class="logo-marquee__set" aria-hidden={clone ? 'true' : undefined}>
+                    {line.map((logo) => (
+                      <li class="logo-tile" title={logo.name}>
+                        {logo.file ? (
+                          <img src={`${base}${logo.file}`} alt={clone ? '' : logo.name} decoding="async" draggable="false" />
+                        ) : (
+                          <span class="logo-word">{logo.name}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                ))}
+              </div>
+            </div>
           ))
         }
-      </ul>
+      </div>
+      </div>
       {
-        workedWith.logos.some((logo) => logo.credit) && (
-          <p class="logo-credits">
-            {workedWith.logos
-              .filter((logo) => logo.credit)
-              .map((logo, i) => (
-                <>
-                  {i > 0 && ' · '}
-                  {logo.source ? (
-                    <a href={logo.source} rel="noopener noreferrer">{logo.credit}</a>
-                  ) : (
-                    logo.credit
-                  )}
-                </>
-              ))}
-          </p>
+        logos.some((logo) => logo.credit) && (
+          <div class="shell">
+            <p class="logo-credits">
+              {logos
+                .filter((logo) => logo.credit)
+                .map((logo, i) => (
+                  <>
+                    {i > 0 && ' · '}
+                    {logo.source ? (
+                      <a href={logo.source} rel="noopener noreferrer">{logo.credit}</a>
+                    ) : (
+                      logo.credit
+                    )}
+                  </>
+                ))}
+            </p>
+          </div>
         )
       }
-    </section>
-
-    <section class="section shell" id="spine" aria-labelledby="spine-heading">
-      <div class="section-head">
-        <p class="eyebrow">The spine</p>
-        <h2 id="spine-heading">{spine.spine.thread}</h2>
-        <p>{spine.spine.why}</p>
-      </div>
-      <ul class="pillar-list">
-        {
-          pillars.map((pillar) => (
-            <li>
-              <span class="org">{pillar.label}</span>
-              <div class="pillar-body">
-                <p class="blurb">{pillar.text}</p>
-                {pillar.samples?.length ? (
-                  <div class="pillar-samples">
-                    <p class="pillar-samples-label">Work samples</p>
-                    <ul>
-                      {pillar.samples.map((sample) => {
-                        const text = sampleText(sample);
-                        const href = sampleHref(sample);
-                        return (
-                          <li>
-                            {href ? (
-                              <a href={`${base}${href}`}>{text}</a>
-                            ) : (
-                              text
-                            )}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </div>
-                ) : null}
-              </div>
-            </li>
-          ))
-        }
-      </ul>
     </section>
 
     <section class="section shell" id="work">
@@ -235,3 +216,18 @@ const explore = [
 
   <SiteFooter />
 </BaseLayout>
+
+<script>
+  const marquee = document.querySelector<HTMLElement>('[data-logo-marquee]');
+  const pause = document.querySelector<HTMLButtonElement>('[data-logo-pause]');
+  if (marquee && pause) {
+    const setPaused = (paused: boolean) => {
+      marquee.toggleAttribute('data-paused', paused);
+      pause.setAttribute('aria-pressed', String(paused));
+      pause.textContent = paused ? 'Play' : 'Pause';
+    };
+    pause.addEventListener('click', () => {
+      setPaused(pause.getAttribute('aria-pressed') !== 'true');
+    });
+  }
+</script>
