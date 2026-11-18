@@ -1,0 +1,81 @@
+---
+import '../styles/global.css';
+import { spine, siteDescription } from '../lib/spine';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = spine.person.name,
+  description = siteDescription,
+} = Astro.props;
+
+const base = import.meta.env.BASE_URL;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="dark light" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" href={`${base}favicon.ico`} />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem('theme');
+          const theme = stored === 'light' || stored === 'dark' ? stored : 'dark';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <slot />
+    <script>
+      function syncToggle(theme: string) {
+        document.querySelectorAll('[data-theme-toggle]').forEach((btn) => {
+          if (!(btn instanceof HTMLButtonElement)) return;
+          const next = theme === 'dark' ? 'light' : 'dark';
+          btn.setAttribute('aria-label', `Switch to ${next} mode`);
+        });
+      }
+
+      function setTheme(theme: 'dark' | 'light') {
+        document.documentElement.setAttribute('data-theme', theme);
+        try {
+          localStorage.setItem('theme', theme);
+        } catch {
+          /* ignore */
+        }
+        syncToggle(theme);
+      }
+
+      document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof Element)) return;
+        const btn = target.closest('[data-theme-toggle]');
+        if (!btn) return;
+        const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        setTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      syncToggle(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+    </script>
+  </body>
+</html>

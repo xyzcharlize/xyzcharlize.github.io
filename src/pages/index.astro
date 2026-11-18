@@ -1,0 +1,237 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import {
+  spine,
+  oneLiner,
+  support,
+  credentialsHome,
+  workedWith,
+} from '../lib/spine';
+
+const base = import.meta.env.BASE_URL;
+const credentials = credentialsHome;
+const logos = workedWith.logos;
+const splitAt = Math.ceil(logos.length / 2);
+const logoLines = [logos.slice(0, splitAt), logos.slice(splitAt)];
+
+const work = [
+  {
+    title: 'Agentic content factory',
+    meta: '2026 – present · Switzerland',
+    blurb:
+      'Python + Agent Skills. Specialised agents for curriculum, storyboard, script, slides, video, and quality review, with a human gate before anything ships.',
+  },
+  {
+    title: 'AI-native product engineering and ownership',
+    meta: '2025 – 2026 · NL, DE, UK',
+    blurb:
+      'GenAI enterprise search (RAG) from pilot to production for 1,000+ users in two months; agentic Copilot tooling and enablement.',
+  },
+  {
+    title: 'Enterprise agile & delivery coaching',
+    meta: '2017 – 2022 · Switzerland',
+    blurb:
+      'Co-founded a consulting practice. Lean-agile delivery across public transport and insurance; transformation coaching for 500+ practitioners.',
+  },
+];
+
+const explore = [
+  {
+    href: `${base}how-i-work/`,
+    title: 'How I work',
+    text: 'The AI maturity Turns, and three ways to work together: build, advise, and teach.',
+  },
+  {
+    href: `${base}use-cases/`,
+    title: 'Use cases',
+    text: 'Common problems when teams bring AI into software delivery. Turn a card to see how we address them.',
+  },
+  {
+    href: `${base}field-notes/`,
+    title: 'Field notes',
+    text: 'Short raw notes from my work out there. The latest: measure the value AI creates, not the time it saves.',
+  },
+  {
+    href: `${base}speaking/`,
+    title: 'Speaking & teaching',
+    text: 'Talks and practitioner sessions where AI tools become practice.',
+  },
+  {
+    href: `${base}about/`,
+    title: 'About',
+    text: 'Work across the software product lifecycle, samples from my CV, and credentials.',
+  },
+];
+---
+
+<BaseLayout>
+  <SiteHeader hideMark />
+
+  <main id="main">
+    <section class="hero" aria-label="Introduction">
+      <div class="hero-media" aria-hidden="true">
+        <img
+          src={`${base}portrait.jpg`}
+          alt=""
+          width="1200"
+          height="1500"
+          decoding="async"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="hero-veil" aria-hidden="true"></div>
+      <div class="shell">
+        <div class="hero-copy">
+          <p class="hero-kicker">{spine.box.label}</p>
+          <h1 class="hero-title">{oneLiner}</h1>
+          <p class="hero-support">{support}</p>
+          <p class="hero-links">
+            <a href={`${base}how-i-work/`}>How I work</a>
+            <a href="#work">Selected engagements</a>
+          </p>
+        </div>
+      </div>
+      <p class="hero-name">{spine.person.name}</p>
+    </section>
+
+    <section class="credentials shell" aria-label="Credentials">
+      <ul class="credential-strip">
+        {credentials.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="section worked-with" id="worked-with" aria-labelledby="worked-with-heading">
+      <div class="shell">
+        <div class="section-head worked-with__head">
+          <div>
+            <p class="eyebrow" id="worked-with-heading">{workedWith.label}</p>
+            {workedWith.note && <p>{workedWith.note}</p>}
+          </div>
+          <button type="button" class="worked-with__pause" data-logo-pause aria-pressed="false">
+            Pause
+          </button>
+        </div>
+      </div>
+      <div class="shell">
+      <div class="logo-marquee" data-logo-marquee>
+        {
+          logoLines.map((line, index) => (
+            <div class="logo-marquee__row" data-dir={index === 0 ? 'left' : 'right'}>
+              <div class="logo-marquee__track">
+                {[false, true].map((clone) => (
+                  <ul class="logo-marquee__set" aria-hidden={clone ? 'true' : undefined}>
+                    {line.map((logo) => (
+                      <li class="logo-tile" title={logo.name}>
+                        {logo.file ? (
+                          <img src={`${base}${logo.file}`} alt={clone ? '' : logo.name} decoding="async" draggable="false" />
+                        ) : (
+                          <span class="logo-word">{logo.name}</span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      </div>
+      {
+        logos.some((logo) => logo.credit) && (
+          <div class="shell">
+            <p class="logo-credits">
+              {logos
+                .filter((logo) => logo.credit)
+                .map((logo, i) => (
+                  <>
+                    {i > 0 && ' · '}
+                    {logo.source ? (
+                      <a href={logo.source} rel="noopener noreferrer">{logo.credit}</a>
+                    ) : (
+                      logo.credit
+                    )}
+                  </>
+                ))}
+            </p>
+          </div>
+        )
+      }
+    </section>
+
+    <section class="section shell" id="work">
+      <div class="section-head">
+        <h2>Selected engagements</h2>
+        <p>A selection of recent work projects — AI-native product engineering, enablement, and transformation coaching.</p>
+      </div>
+
+      <ul class="work-list">
+        {
+          work.map((item) => (
+            <li>
+              <div>
+                <span class="org">{item.title}</span>
+                <span class="meta">{item.meta}</span>
+              </div>
+              <p class="blurb">{item.blurb}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="section shell" id="explore">
+      <div class="section-head">
+        <h2>Learn more</h2>
+        <p>Five more places to start and get to know me.</p>
+      </div>
+      <ul class="explore-list">
+        {
+          explore.map((item, index) => (
+            <li>
+              <a href={item.href}>
+                <span class="explore-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <span class="explore-copy">
+                  <span class="explore-title">{item.title}</span>
+                  <span class="explore-text">{item.text}</span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="contact shell" id="contact">
+      <div class="contact-panel">
+        <div>
+          <h2>Say hello</h2>
+          <p>Happy to talk about AI-native software product engineering and enablement.</p>
+        </div>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="https://www.linkedin.com/in/xyzcha" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn btn-ghost" href="https://github.com/xyzcharlize" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
+
+<script>
+  const marquee = document.querySelector<HTMLElement>('[data-logo-marquee]');
+  const pause = document.querySelector<HTMLButtonElement>('[data-logo-pause]');
+  if (marquee && pause) {
+    const setPaused = (paused: boolean) => {
+      marquee.toggleAttribute('data-paused', paused);
+      pause.setAttribute('aria-pressed', String(paused));
+      pause.textContent = paused ? 'Play' : 'Pause';
+    };
+    pause.addEventListener('click', () => {
+      setPaused(pause.getAttribute('aria-pressed') !== 'true');
+    });
+  }
+</script>

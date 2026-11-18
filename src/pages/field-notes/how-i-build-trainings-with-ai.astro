@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="How I build trainings with AI — Field notes"
+  description="From a client's wish to slides in the room: the spine, the tools, and where I still step in myself."
+>
+  <SiteHeader solid />
+
+  <main id="main" class="page">
+    <article class="shell note-article">
+      <p class="eyebrow"><a href={`${base}field-notes/`}>Field notes</a> · Nov 2026</p>
+      <h1>How I build trainings with AI</h1>
+      <p class="page-lede">From a client's wish to slides in the room — and the eight minutes that only work because the spine exists.</p>
+
+      <div class="prose-block">
+        <p>
+          Two days before a workshop I asked the client for a screenshot, and it showed that half of my training wouldn't
+          work. Eight minutes and one sentence to Claude Code later, it did. Those eight minutes are what this note is
+          about, but most of the real work happened long before them.
+        </p>
+        <p>
+          I help enterprises upskill their people in AI. A lot of my work is trainings: a concept, HTML slides, prompt
+          handouts, exercises, and videos for self-paced learning. This is how I build them today, and where I still step
+          in myself.
+        </p>
+
+        <h2>My setup</h2>
+        <div class="prose-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Work</th>
+                <th>Tool</th>
+                <th>Model or setting</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Clarify what the client wants</td>
+                <td>Matt Pocock's grilling skill, used as is, in Claude Code</td>
+                <td>Claude Opus 5.5, high effort</td>
+              </tr>
+              <tr>
+                <td>Keep decisions</td>
+                <td>A spec and ADRs as Markdown in <code>./docs</code>, linked from <code>AGENTS.md</code></td>
+                <td>Claude Opus 5.5, high effort</td>
+              </tr>
+              <tr>
+                <td>Build slides and handouts</td>
+                <td>Claude Code</td>
+                <td>Claude Opus 5.5, medium effort</td>
+              </tr>
+              <tr>
+                <td>Bulk changes</td>
+                <td>Voice: macOS dictation, Claude Code voice mode, or GitHub Copilot voice</td>
+                <td>Copilot voice runs a local model</td>
+              </tr>
+              <tr>
+                <td>Design tweaks</td>
+                <td>VS Code's integrated browser — select an HTML element and comment on it</td>
+                <td>Claude Opus 5.5, low to medium effort</td>
+              </tr>
+              <tr>
+                <td>Word-level fixes</td>
+                <td>My own inline editor</td>
+                <td>No AI</td>
+              </tr>
+              <tr>
+                <td>Verification</td>
+                <td>Linting, plus a <code>/checkawesome</code> skill for some offerings</td>
+                <td>Claude Opus 5.5, medium effort</td>
+              </tr>
+              <tr>
+                <td>Slides to the client</td>
+                <td>Plain HTML, exported to PDF by Claude</td>
+                <td>Claude Opus 5.5, medium effort</td>
+              </tr>
+              <tr>
+                <td>Self-paced videos</td>
+                <td>HeyGen MCP connector in Claude Code, HyperFrames HTML overlay</td>
+                <td>HeyGen stock avatar with lip-sync</td>
+              </tr>
+              <tr>
+                <td>Quizzes and packaging</td>
+                <td>Claude Code, SCORM or the LMS's own format</td>
+                <td>Built from content plus learning outcomes</td>
+              </tr>
+              <tr>
+                <td>Fixes after delivery</td>
+                <td>GitHub issues</td>
+                <td>Me, for now</td>
+              </tr>
+              <tr>
+                <td>Cost</td>
+                <td>Claude Pro</td>
+                <td>n/a</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Decision 1: let a skill grill me before anything gets built</h2>
+        <p>
+          A new training starts with a client and a fuzzy wish. Before I write a slide, I let Matt Pocock's grilling skill
+          interview me about what the client actually wants. I use it as it is, in Claude Code with Opus 5.5 on high. The
+          answers go into a spec, and Claude records the decisions as ADRs, short Markdown decision records in
+          <code>./docs</code>. <code>AGENTS.md</code> describes the folder structure and links to those files, so every
+          session starts from the same decisions.
+        </p>
+
+        <h2>Decision 2: go straight to building</h2>
+        <p>
+          I rarely split the spec into tasks. I need to iterate fast, so most of the time I go straight to building.
+          Sometimes I ask the agent for a task list with checkboxes it ticks off as it goes. My first prompt for the
+          workshop below was this:
+        </p>
+        <pre><code>in this repo we will design slides based on the training concept, the medium for the slides is not PPT but html.</code></pre>
+        <p>That's all. The prompt can be short because the context isn't in the prompt.</p>
+
+        <h2>Decision 3: let it run, because it has a spine</h2>
+        <p>
+          I let Claude Code run on its own. It can do good work because it has what I call the spine: the spec, the ADRs,
+          <code>AGENTS.md</code> and the skills working together. Others call it a factory or a system. I run Opus 5.5 on
+          high effort, because content work needs it to get the taste right.
+        </p>
+        <p>
+          Building the spine is where most of my time goes. Encoding taste and judgment is hard, and it only gets better
+          through iteration.
+        </p>
+
+        <h2>Decision 4: three ways to steer, at the same time</h2>
+        <p>While the agent works, I steer it in three ways:</p>
+        <ul>
+          <li>
+            <strong>By voice</strong> for bulk changes that run in the background. GitHub Copilot's voice mode even runs
+            on a local model.
+          </li>
+          <li>
+            <strong>In VS Code's integrated browser</strong> for design: I select an HTML element and comment on it.
+          </li>
+          <li>
+            <strong>In my own inline editor</strong> for tiny fixes, like a German word the translation got slightly
+            wrong. I don't want to talk to an agent about one word.
+          </li>
+        </ul>
+        <p>
+          I keep rebuilding that inline editor for every project. The next step is a blueprint that bundles the slides,
+          the editor, the integrated browser and the skills in one place.
+        </p>
+
+        <h2>Decision 5: write taste down so the agent can check itself</h2>
+        <p>
+          Linting catches the mechanical problems. For taste, I write criteria into a skill. For one of my offerings,
+          <code>/checkawesome</code> checks the content against rules like these:
+        </p>
+        <pre><code>1. Simplicity: no more than 3–4 phases, formats or domains.
+4. No AI slop: factual, short and specific. No slogans, triads, filler or em-dash constructions.
+6. Clear focus, no scope creep: concise and compact, with explicit exclusions and a change request rule.
+7. Learning objectives before content: always lead with drafted learning objectives, never with learning content.
+8. Assumptions, not questions: state open points as our assumptions. Questions invite scope creep.
+9. One place for timing: all dates and months live on the Zeitplan slide only.
+12. Consistent and verified: every number matches across all slides, checked in Excel with formulas (37 of 37).
+13. Terse writing: short sentences, applied to the deck and to the emails.</code></pre>
+        <p>Rules 7 to 13 weren't in the first version. I added them along the way, every time something annoyed me.</p>
+
+        <h2>Decision 6: video comes from the same repo</h2>
+        <p>
+          For self-paced trainings I produce videos with lip-sync avatars, and I don't open HeyGen myself. It starts with
+          a CSV of learning outcomes. From that, Claude builds a storyboard, then writes the script. Claude then creates
+          the video with a HeyGen stock avatar through the HeyGen MCP connector in Claude Code. On top of the avatar sits
+          a HyperFrames HTML overlay, which Claude generates from the script, the slides and a brand
+          <code>design.md</code>.
+        </p>
+        <p>
+          I review only the storyboard. Once that's right, I let Claude take the script and the video the rest of the
+          way.
+        </p>
+
+        <h2>Decision 7: labs get two test runs</h2>
+        <p>
+          My trainings include step-by-step lab guides with practical exercises. Labs are the critical piece, because
+          they have to work in the room. First Claude works through the lab as a persona from the target audience, taken
+          from the spec, and reports back to me. Then I work through it myself.
+        </p>
+
+        <h2>Decision 8: quizzes and packaging come last</h2>
+        <p>
+          To check knowledge, Claude writes quizzes from the finished content combined with the learning outcomes. When
+          content development is done, Claude also packages everything, as SCORM or whatever format the client's learning
+          management system (LMS) needs. The work then reaches the client either through me or through their LMS.
+        </p>
+
+        <h2>A real example: “Mit KI lernen”</h2>
+        <p>
+          “Mit KI lernen” (AI as your learning companion) is a 55-minute workshop. Participants make Microsoft Copilot
+          their learning companion, using a start prompt with four parts (goal, context, source, expectations) and five
+          techniques for checking Copilot's answers.
+        </p>
+        <p>
+          The concept, version 2, was more ambitious: in 60 minutes everyone would build a learning companion in a
+          Copilot Notebook with three prompts. Then Copilot changed. Notebooks became Workspaces, and the participants
+          had no access to them. I found out because I asked the client for a screenshot two days before the session.
+        </p>
+        <p>
+          About half the course had to change, and the rework took eight minutes. I told Claude Code:
+        </p>
+        <pre><code>add a basic path using only copilot chat.</code></pre>
+        <p>
+          The new basic path is one start prompt plus an uploaded document. The three-prompt notebook setup became an
+          optional advanced path for people who have access. The 19 slides went to the client as a PDF.
+        </p>
+
+        <h2>Honest caveats</h2>
+        <ul>
+          <li>
+            I didn't run <code>/checkawesome</code> on this workshop. It came later, for another offering.
+          </li>
+          <li>The platform I teach changes under me. No spec catches that. A screenshot from the client did.</li>
+          <li>
+            After delivery, I fix things myself through GitHub issues. An automation in the cloud should pick those up
+            soon, but it doesn't yet.
+          </li>
+          <li>
+            I'm more hands-on than I want to be. Getting hands-off needs a stronger spine: taste and quality written down
+            as rules, scripts and skills that let the agent verify its own work.
+          </li>
+        </ul>
+
+        <h2>What stays mine</h2>
+        <p>
+          Before a session I still scroll through every slide myself and dictate whatever catches my eye. What catches it
+          is almost always content: whether this actually fits this client and these people. For videos, the storyboard
+          is mine. For labs, the final run-through is mine. Checking the client's real setup is mine too. The agent builds
+          fast. Deciding what's worth building, and noticing when the ground has moved, stays with me.
+        </p>
+        <p>
+          A friend who read a draft of this put it more bluntly than I would. Reworking half a course two days before a
+          training, so it fits the client exactly, doesn't work without AI. It also doesn't work without a lot of
+          practice with AI. But my real edge isn't either of those. It's that I know what this client needs to hear in
+          the room. Someone else with the same tools can't copy that.
+        </p>
+      </div>
+
+      <p class="note-back">
+        <a href={`${base}field-notes/`}>← All field notes</a>
+        ·
+        <a href={`${base}how-i-work/`}>How I work</a>
+        ·
+        <a href={`${base}speaking/`}>Speaking &amp; teaching</a>
+      </p>
+    </article>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>

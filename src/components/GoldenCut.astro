@@ -1,0 +1,56 @@
+---
+/**
+ * Photographic golden cut: Phi Grid + Fibonacci spiral (φ ≈ 1.618).
+ * Phi lines at ~38.2% / 61.8% (1 : 0.618 : 1). Spiral runs through
+ * Fibonacci squares 55→34→21→13→8→5→3→2 inside an 89×55 frame.
+ * @see https://www.hamstech.com/hamstech-blog/applying-golden-ratio-in-photography
+ */
+const spiral =
+  'M0 55 A55 55 0 0 1 55 0 A34 34 0 0 1 89 34 A21 21 0 0 1 68 55 A13 13 0 0 1 55 42 A8 8 0 0 1 63 34 A5 5 0 0 1 68 39 A3 3 0 0 1 65 42 A2 2 0 0 1 63 40';
+---
+
+<svg
+  class="golden-cut"
+  viewBox="0 0 89 55"
+  aria-hidden="true"
+  focusable="false"
+>
+  <!-- Phi grid -->
+  <g class="golden-cut__grid">
+    <path class="gc gc--shadow" pathLength="1" d="M34 0 V55" />
+    <path class="gc gc--glow" pathLength="1" d="M34 0 V55" />
+    <path class="gc gc--line" pathLength="1" d="M34 0 V55" />
+
+    <path class="gc gc--shadow" pathLength="1" d="M55 0 V55" style="animation-delay:0.12s" />
+    <path class="gc gc--glow" pathLength="1" d="M55 0 V55" style="animation-delay:0.12s" />
+    <path class="gc gc--line" pathLength="1" d="M55 0 V55" style="animation-delay:0.12s" />
+
+    <path class="gc gc--shadow" pathLength="1" d="M0 21 H89" style="animation-delay:0.24s" />
+    <path class="gc gc--glow" pathLength="1" d="M0 21 H89" style="animation-delay:0.24s" />
+    <path class="gc gc--line" pathLength="1" d="M0 21 H89" style="animation-delay:0.24s" />
+
+    <path class="gc gc--shadow" pathLength="1" d="M0 34 H89" style="animation-delay:0.36s" />
+    <path class="gc gc--glow" pathLength="1" d="M0 34 H89" style="animation-delay:0.36s" />
+    <path class="gc gc--line" pathLength="1" d="M0 34 H89" style="animation-delay:0.36s" />
+  </g>
+
+  <!-- Fibonacci squares -->
+  <g class="golden-cut__squares">
+    <path class="gc gc--sq" pathLength="1" d="M0 0 H55 V55 H0 Z" style="animation-delay:0.55s" />
+    <path class="gc gc--sq" pathLength="1" d="M55 0 H89 V34 H55 Z" style="animation-delay:0.7s" />
+    <path class="gc gc--sq" pathLength="1" d="M68 34 H89 V55 H68 Z" style="animation-delay:0.85s" />
+    <path class="gc gc--sq" pathLength="1" d="M55 42 H68 V55 H55 Z" style="animation-delay:1s" />
+    <path class="gc gc--sq" pathLength="1" d="M55 34 H63 V42 H55 Z" style="animation-delay:1.12s" />
+    <path class="gc gc--sq" pathLength="1" d="M63 34 H68 V39 H63 Z" style="animation-delay:1.22s" />
+    <path class="gc gc--sq" pathLength="1" d="M65 39 H68 V42 H65 Z" style="animation-delay:1.3s" />
+    <path class="gc gc--sq" pathLength="1" d="M63 40 H65 V42 H63 Z" style="animation-delay:1.36s" />
+  </g>
+
+  <!-- Fibonacci spiral -->
+  <g class="golden-cut__spiral">
+    <path class="gc gc--spiral-glow" pathLength="1" d={spiral} style="animation-delay:1.05s" />
+    <path class="gc gc--spiral" pathLength="1" d={spiral} style="animation-delay:1.05s" />
+  </g>
+
+  <circle class="golden-cut__focus" cx="63.5" cy="40.5" r="1.2" />
+</svg>

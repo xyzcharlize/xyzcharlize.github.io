@@ -1,0 +1,102 @@
+{
+  "terms": [
+    {
+      "id": "trusted-advisor",
+      "forms": [
+        "customer-facing trusted advisor",
+        "trusted advisor"
+      ],
+      "state": "defined",
+      "text": "The first person in the room with the customer: a hybrid who understands engineering practice, can face the customer, and bridges their needs into working systems. Not purely an engineer."
+    },
+    {
+      "id": "enablement",
+      "forms": [
+        "practitioner enablement",
+        "enablement"
+      ],
+      "state": "defined",
+      "text": "Teaching the workflow until a team can run it: training, coaching, and sharing what works. Same practice as the build, at a different depth."
+    },
+    {
+      "id": "spine",
+      "forms": [
+        "the spine",
+        "spine"
+      ],
+      "state": "defined",
+      "text": "The written frame the work runs on. In a build it is the spec, the decisions, and the rules an agent can check itself against. In the practice it is the red thread through the career."
+    },
+    {
+      "id": "coding-agents",
+      "forms": [
+        "coding agents",
+        "agents"
+      ],
+      "state": "defined",
+      "text": "Agents that draft and check work against a frame a person owns. The person reviews the diffs and owns the outcome."
+    },
+    {
+      "id": "value",
+      "forms": [
+        "value created",
+        "value"
+      ],
+      "state": "defined",
+      "text": "What the work creates: new products, better decisions, more stable platforms, new business. Time saved is a first measure, not the value."
+    },
+    {
+      "id": "ai-native",
+      "forms": [
+        "AI-native"
+      ],
+      "state": "defined",
+      "text": "The name of the practice: build, advise, and teach software with coding agents as part of the work."
+    },
+    {
+      "id": "product-engineering",
+      "forms": [
+        "software product engineering",
+        "product engineering"
+      ],
+      "state": "defined",
+      "text": "The work across a software product’s lifecycle, from the need through build and test to owning the outcome. Not a single stack, and not a list of jobs in order."
+    },
+    {
+      "id": "turn",
+      "forms": [
+        "maturity turn",
+        "turn"
+      ],
+      "state": "defined",
+      "text": "One step on the maturity spiral. A turn means overcoming the bottleneck, putting the next guardrails in place, and reaching the unlock."
+    },
+    {
+      "id": "teach",
+      "forms": [
+        "Teach",
+        "teach"
+      ],
+      "state": "defined",
+      "text": "Teaching the new workflow through enablement and speaking. The same loop used in production, with a person in the room."
+    },
+    {
+      "id": "training",
+      "forms": [
+        "training",
+        "trainings"
+      ],
+      "state": "defined",
+      "text": "A talk or a practitioner session built from learning outcomes, on the team’s own work. A human gate stays on what ships."
+    },
+    {
+      "id": "agent-skills",
+      "forms": [
+        "Agent Skills",
+        "skills"
+      ],
+      "state": "defined",
+      "text": "Written instructions an agent can run inside the factory: curriculum, storyboard, script, slides, video, quality review. Separate from the human skills a team still has to grow."
+    }
+  ]
+}

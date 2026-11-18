@@ -1,0 +1,86 @@
+---
+import { spine } from '../lib/spine';
+
+interface Props {
+  solid?: boolean;
+  hideMark?: boolean;
+}
+
+const { solid = false, hideMark = false } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<header class:list={['site-header', { 'site-header--solid': solid, 'site-header--nameless': hideMark }]}>
+  <div class="shell">
+    {!hideMark && <a class="mark" href={base}>{spine.person.name}</a>}
+    <div class="header-actions">
+      <button
+        type="button"
+        class="nav-toggle"
+        data-nav-toggle
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        Menu
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href={base}>Home</a>
+        <a href={`${base}how-i-work/`}>How I work</a>
+        <a href={`${base}use-cases/`}>Use cases</a>
+        <a href={`${base}speaking/`}>Speaking</a>
+        <a href={`${base}field-notes/`}>Field notes</a>
+        <a href={`${base}about/`}>About</a>
+      </nav>
+      <button type="button" class="theme-toggle" data-theme-toggle aria-label="Switch to light mode">
+        <svg class="theme-icon theme-icon--sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+          <path
+            d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"></path>
+        </svg>
+        <svg class="theme-icon theme-icon--moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<script>
+  const header = document.querySelector('.site-header');
+  const toggle = header?.querySelector('[data-nav-toggle]');
+  const nav = document.getElementById('site-nav');
+
+  if (header instanceof HTMLElement && toggle instanceof HTMLButtonElement && nav) {
+    const setOpen = (open: boolean) => {
+      header.classList.toggle('is-menu-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? 'Close' : 'Menu';
+    };
+
+    toggle.addEventListener('click', () => {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    nav.addEventListener('click', (event) => {
+      const target = event.target;
+      if (target instanceof Element && target.closest('a')) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!(event.target instanceof Node) || header.contains(event.target)) return;
+      setOpen(false);
+    });
+  }
+</script>
