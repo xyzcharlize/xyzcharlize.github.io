@@ -28,3 +28,9 @@ npm run build && npm run preview
 ## Deploy
 
 GitHub Actions: [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml). Pages source must be **GitHub Actions**.
+
+## Website review
+
+Do **not** use computer-use to check the website. The owner reviews it themselves.
+
+Occasional browser-use is fine when the task needs it (for example working on or optimizing mobile view). Prefer build/preview and code review over GUI walkthroughs.
