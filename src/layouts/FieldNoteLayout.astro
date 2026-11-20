@@ -1,0 +1,50 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    date: Date | string;
+    description?: string;
+  };
+}
+
+const { frontmatter } = Astro.props;
+const dateISO =
+  frontmatter.date instanceof Date
+    ? frontmatter.date.toISOString().slice(0, 10)
+    : String(frontmatter.date).slice(0, 10);
+const dateLabel = new Intl.DateTimeFormat('en', {
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+}).format(new Date(`${dateISO}T00:00:00Z`));
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title={`${frontmatter.title} — Field notes`}
+  description={frontmatter.description ?? 'Field notes on GitHub Copilot Fusion and local models.'}
+>
+  <SiteHeader solid />
+
+  <main id="main" class="page">
+    <article class="shell note-article">
+      <p class="eyebrow"><a href={`${base}field-notes/`}>Field notes</a> · <time datetime={dateISO}>{dateLabel}</time></p>
+      <div class="prose-block">
+        <slot />
+      </div>
+      <p class="note-back">
+        <a href={`${base}field-notes/`}>← All field notes</a>
+        ·
+        <a href={`${base}how-i-work/`}>How I work</a>
+        ·
+        <a href={`${base}use-cases/`}>Use cases</a>
+      </p>
+    </article>
+  </main>
+
+  <SiteFooter />
+</BaseLayout>
